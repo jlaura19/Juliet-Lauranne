@@ -1,0 +1,1167 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Kevin | Software Engineering Portfolio</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-container": "#23b2ec",
+            "secondary-fixed": "#e9ddff",
+            "primary": "#4cd7f6",
+            "inverse-primary": "#00687a",
+            "on-secondary-container": "#c4abff",
+            "background": "#0f131c",
+            "surface": "#0f131c",
+            "on-tertiary": "#00354a",
+            "on-error": "#690005",
+            "on-surface": "#dfe2ee",
+            "on-tertiary-fixed": "#001e2c",
+            "outline": "#869397",
+            "tertiary": "#7bd0ff",
+            "surface-container-low": "#181c24",
+            "surface-bright": "#353942",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "on-secondary": "#3c0091",
+            "primary-fixed-dim": "#4cd7f6",
+            "inverse-on-surface": "#2c3039",
+            "primary-container": "#06b6d4",
+            "secondary-fixed-dim": "#d0bcff",
+            "outline-variant": "#3d494c",
+            "on-primary-fixed-variant": "#004e5c",
+            "on-secondary-fixed": "#23005c",
+            "surface-dim": "#0f131c",
+            "inverse-surface": "#dfe2ee",
+            "tertiary-fixed": "#c4e7ff",
+            "primary-fixed": "#acedff",
+            "surface-variant": "#31353e",
+            "secondary": "#d0bcff",
+            "surface-container-highest": "#31353e",
+            "on-surface-variant": "#bcc9cd",
+            "error": "#ffb4ab",
+            "on-tertiary-container": "#00415a",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-tertiary-fixed-variant": "#004c69",
+            "surface-container-high": "#262a33",
+            "on-primary-container": "#00424f",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#571bc1",
+            "error-container": "#93000a",
+            "surface-container-lowest": "#0a0e16",
+            "on-background": "#dfe2ee",
+            "surface-tint": "#4cd7f6",
+            "on-primary-fixed": "#001f26",
+            "surface-container": "#1c2028",
+            "on-primary": "#003640"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "margin": "3rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-code": ["JetBrains Mono"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-badge": ["JetBrains Mono"],
+            "display": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Grid Mesh Pattern */
+    .bg-tech-grid {
+      background-image: radial-gradient(rgba(76, 215, 246, 0.12) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .cyan-glow {
+      box-shadow: 0 0 24px -4px rgba(6, 182, 212, 0.35);
+    }
+    .purple-glow {
+      box-shadow: 0 0 24px -4px rgba(208, 188, 255, 0.25);
+    }
+    .terminal-caret {
+      display: inline-block;
+      width: 10px;
+      height: 1.1em;
+      background-color: #4cd7f6;
+      vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      from, to { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden font-body-md text-body-md" data-mode="connect">
+<!-- Ambient Light Backdrops -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-48 left-1/4 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px]"></div>
+<div class="absolute top-1/3 -right-48 w-[500px] h-[500px] bg-secondary-container/20 rounded-full blur-[130px]"></div>
+<div class="absolute bottom-1/4 -left-32 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]"></div>
+<div class="absolute inset-0 bg-tech-grid opacity-30"></div>
+</div>
+<!-- SHARED COMPONENT: TopAppBar (Web & Mobile Shell Anchor) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm dark:shadow-none">
+<div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+<!-- Leading Brand Token -->
+<a class="flex items-center gap-2 group" href="#hero">
+<span class="material-symbols-outlined text-primary dark:text-primary group-hover:scale-110 transition-transform duration-150">terminal</span>
+<span class="font-label-code text-label-code text-primary dark:text-primary tracking-wider font-bold">dev::portfolio</span>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-headline-sm text-headline-sm text-primary dark:text-primary font-bold hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#overview">Overview</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#certifications">Certifications</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#skills"><br></a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#projects">Projects</a>
+<a class="font-headline-sm text-headline-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#contact">Contact</a>
+</nav>
+<!-- Trailing Action: Status Badge -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant/40 shadow-inner">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-badge text-label-badge text-primary dark:text-primary font-semibold">Status: Available</span>
+</div>
+<a class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-label-code text-label-code font-bold hover:bg-primary transition-colors active:scale-95" href="#contact">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span>Hire Me</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 pt-20 pb-16">
+<!-- HERO SECTION -->
+<section class="max-w-7xl mx-auto px-4 md:px-6 pt-12 md:pt-20 pb-16 flex flex-col justify-center min-h-[839px]" id="hero">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-8 flex flex-col items-start space-y-6">
+<!-- Terminal Tag Header -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low/80 border border-outline-variant/50 backdrop-blur-md">
+<span class="font-label-badge text-label-badge text-tertiary font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">token</span>
+<span>ENGINEER_STAGE::SCHOLAR_ACTIVE</span>
+</span>
+</div>
+<!-- Headline with Live Typewriter Dynamic Presentation -->
+<h1 class="font-display text-display font-extrabold text-on-surface tracking-tight leading-tight">
+            I craft resilient code as a <br class="hidden sm:inline">
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary" id="typewriter">Full-Stack &amp; Cloud Engineer</span><span class="terminal-caret ml-1"></span>
+</h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            Passionate Software Engineering scholar focused on scalable distributed systems, security, and high-performance mobile &amp; web architectures. Architecting deterministic microservices and clean asynchronous frontends.
+          </p>
+<!-- Quick Action Cluster -->
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="px-6 py-3 rounded-lg bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-bold cyan-glow hover:bg-primary transition-all duration-150 active:scale-95 flex items-center gap-2" href="#projects">
+<span class="material-symbols-outlined">folder_special</span>
+<span>Explore Repositories</span>
+</a>
+<a class="px-6 py-3 rounded-lg bg-surface-container-low/70 border border-outline-variant hover:border-secondary text-on-surface font-headline-sm text-headline-sm font-semibold backdrop-blur-md hover:bg-secondary-container/20 hover:text-secondary transition-all duration-150 active:scale-95 flex items-center gap-2" href="#contact">
+<span class="material-symbols-outlined">satellite_alt</span>
+<span>Initiate Transmission</span>
+</a>
+</div>
+<!-- Telemetry HUD Cards Grid -->
+<div class="w-full grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6">
+<div class="p-3.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/30 backdrop-blur-md">
+<div class="font-display text-2xl font-extrabold text-primary">4+</div>
+<div class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider mt-0.5">Verified Certs</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/30 backdrop-blur-md">
+<div class="font-display text-2xl font-extrabold text-secondary">18+</div>
+<div class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider mt-0.5">Open Source Repos</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/30 backdrop-blur-md">
+<div class="font-display text-2xl font-extrabold text-tertiary">520+</div>
+<div class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider mt-0.5">Annual Commits</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/30 backdrop-blur-md">
+<div class="font-display text-2xl font-extrabold text-primary">99.9%</div>
+<div class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider mt-0.5">Uptime Mindset</div>
+</div>
+</div>
+</div>
+<!-- Terminal Console Visual Pane -->
+<div class="lg:col-span-4 w-full">
+<div class="rounded-xl bg-surface-container-lowest/90 border border-outline-variant/40 shadow-2xl backdrop-blur-xl overflow-hidden cyan-glow">
+<!-- macOS Window Bar -->
+<div class="px-4 py-2.5 bg-surface-container flex items-center justify-between border-b border-outline-variant/30">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+</div>
+<span class="font-label-code text-xs text-on-surface-variant">runtime@kevin-core:~$</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors" onclick="navigator.clipboard.writeText('curl -sSL https://kevin.dev/telemetry.json')" title="Copy Command">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<!-- Terminal Body -->
+<div class="p-4 font-label-code text-xs leading-relaxed space-y-2 text-on-surface-variant overflow-x-auto">
+<p class="text-outline">$ <span class="text-primary">cat</span> ./manifest.yaml</p>
+<p><span class="text-secondary">engineer:</span> "Kevin"</p>
+<p><span class="text-secondary">discipline:</span> "Software Engineering Scholar"</p>
+<p><span class="text-secondary">stack:</span> ["Python", "Java", "TypeScript", "Flutter"]</p>
+<p><span class="text-secondary">cloud_mesh:</span> ["Docker", "Kubernetes", "AWS"]</p>
+<p><span class="text-secondary">telemetry_health:</span> <span class="text-emerald-400">STATUS_OPTIMAL</span></p>
+<p class="text-outline pt-2">$ <span class="text-primary">sysctl</span> -a --pattern=resilience</p>
+<p class="text-primary">net.core.somaxconn = 65535</p>
+<p class="text-tertiary">kernel.sched_latency_ns = 6000000</p>
+<p class="text-outline pt-1 animate-pulse"># Ready for cluster deployment...</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OVERVIEW / ABOUT ME SECTION -->
+<section class="max-w-7xl mx-auto px-4 md:px-6 py-16" id="overview">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">person_search</span>
+<span class="font-label-code text-label-code text-primary uppercase tracking-widest font-semibold">Discovery Layer</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-8">Architectural Mindset &amp; Journey</h2>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left: Philosophy Card -->
+<div class="lg:col-span-5 p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md space-y-5">
+<div class="flex items-center gap-3 pb-3 border-b border-outline-variant/30">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">neurology</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Philosophy &amp; Focus</h3>
+<p class="font-label-code text-label-code text-on-surface-variant">Deterministic • Scalable • Secure</p>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            I approach software engineering as the rigorous discipline of building deterministic state systems over distributed topologies. Having an insatiable curiosity for kernel telemetry, high-throughput microservices, and elegant reactive client UI, my focus is bridging the gap between hardware efficiency and developer velocity.
+          </p>
+<div class="space-y-3 pt-2">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5">verified_user</span>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Test-Driven Resilience:</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Zero-tolerance for unhandled exceptions, CI/CD automated contract testing, and failover topologies.</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg mt-0.5">memory</span>
+<div>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Distributed Scalability:</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">Microservice modularity, queue-backed decoupling, and robust horizontal scale with minimal tail latency.</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Current Base</span>
+<span class="font-label-code text-label-code text-tertiary">Nairobi, Kenya • Remote Ready</span>
+</div>
+</div>
+<!-- Right: Milestones & Verified Certifications Timeline -->
+<div class="lg:col-span-7 space-y-4" id="certifications">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified</span>
+<span>Verified Industry Certifications</span>
+</h3>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-secondary-container/30 text-secondary">4 Validated</span>
+</div>
+<!-- Cert 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low/60 border border-outline-variant/40 hover:border-primary/50 transition-all duration-150 backdrop-blur-md group">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">lan</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">Digital Awareness</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cisco Networking Academy</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-center">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Jan 8, 2025</span>
+<button class="text-primary hover:text-primary-fixed transition-colors" onclick="openCertModal('Digital Awareness', 'Cisco Networking Academy', 'Completed: Jan 8, 2025', 'Validated competencies in foundational cloud structures, digital safety, algorithmic literacy, and modern network endpoints.', 'CISCO-NETACAD-2025-DA')">
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Cert 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low/60 border border-outline-variant/40 hover:border-secondary/50 transition-all duration-150 backdrop-blur-md group">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-xl">security</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-secondary transition-colors">Cybersecurity and Emerging Technologies Awareness Training</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ICT Authority, Kenya</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-center">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Dec 14, 2024</span>
+<button class="text-secondary hover:text-secondary-fixed transition-colors" onclick="openCertModal('Cybersecurity and Emerging Technologies Awareness Training', 'ICT Authority, Kenya', 'Dec 14, 2024', 'Comprehensive curriculum covering national cybersecurity frameworks, threat vectors, AI ethics, and defensive telemetry protocols.', 'ICTA-1734202986-2344-19305')">
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</button>
+</div>
+</div>
+<div class="mt-2 text-xs font-label-code text-on-surface-variant/80 pl-8">
+              Verification ID: <span class="text-secondary">ICTA-1734202986-2344-19305</span>
+</div>
+</div>
+<!-- Cert 3 -->
+<div class="p-4 rounded-xl bg-surface-container-low/60 border border-outline-variant/40 hover:border-primary/50 transition-all duration-150 backdrop-blur-md group">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">shield</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">Introduction to Cybersecurity</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cisco Networking Academy</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-center">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Jun 27, 2024</span>
+<button class="text-primary hover:text-primary-fixed transition-colors" onclick="openCertModal('Introduction to Cybersecurity', 'Cisco Networking Academy', 'Jun 27, 2024', 'Foundations of confidentiality, integrity, availability (CIA triad), cryptography paradigms, packet sniffers, and defensive posture.', 'CISCO-SEC-2024-INTRO')">
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Cert 4 -->
+<div class="p-4 rounded-xl bg-surface-container-low/60 border border-outline-variant/40 hover:border-tertiary/50 transition-all duration-150 backdrop-blur-md group">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl">insights</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-tertiary transition-colors">Social Media Marketing Certificate</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Brightermonday Kenya / Arifu</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-center">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Nov 18, 2025</span>
+<button class="text-tertiary hover:text-tertiary-fixed transition-colors" onclick="openCertModal('Social Media Marketing Certificate', 'Brightermonday Kenya / Arifu', 'Nov 18, 2025', 'Digital outreach strategies, analytics pipelines, growth attribution models, and conversion funnel optimization.', 'CERT-000000000351')">
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</button>
+</div>
+</div>
+<div class="mt-2 text-xs font-label-code text-on-surface-variant/80 pl-8">
+              Verification ID: <span class="text-tertiary">CERT-000000000351</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SKILLS & EXPERTISE BENTO GRID -->
+<section class="max-w-7xl mx-auto px-4 md:px-6 py-16" id="skills">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">data_object</span>
+<span class="font-label-code text-label-code text-primary uppercase tracking-widest font-semibold">Capability Matrix</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-8">Technical Proficiencies &amp; Toolchains</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Category 1: Languages -->
+<div class="p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between hover:border-primary/50 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary text-2xl">code</span>
+<span class="font-label-badge text-label-badge text-primary bg-primary-container/20 px-2 py-0.5 rounded">Core Logic</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mb-3">Languages</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Polyglot engineering with strong typing and high-efficiency compute.</p>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>Python</span>
+<span class="text-primary">94%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>Java (21 LTS)</span>
+<span class="text-primary">90%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>TypeScript</span>
+<span class="text-primary">88%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>Dart</span>
+<span class="text-primary">85%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>C++</span>
+<span class="text-primary">80%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">OOP</span>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Functional</span>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Async IO</span>
+</div>
+</div>
+<!-- Category 2: Frontend & Mobile -->
+<div class="p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between hover:border-tertiary/50 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-tertiary text-2xl">devices</span>
+<span class="font-label-badge text-label-badge text-tertiary bg-tertiary-container/20 px-2 py-0.5 rounded">Client Tier</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mb-3">Frontend &amp; Mobile</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Cross-platform native experiences and reactive web single-page apps.</p>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>Flutter</span>
+<span class="text-tertiary">92%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>React / Next.js 14</span>
+<span class="text-tertiary">90%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>Tailwind CSS</span>
+<span class="text-tertiary">95%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>State Management (Bloc/Zustand)</span>
+<span class="text-tertiary">86%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 86%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">SSR/SSG</span>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Glassmorphic</span>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">PWA</span>
+</div>
+</div>
+<!-- Category 3: Backend & Cloud -->
+<div class="p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between hover:border-secondary/50 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-secondary text-2xl">dns</span>
+<span class="font-label-badge text-label-badge text-secondary bg-secondary-container/20 px-2 py-0.5 rounded">Distributed</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mb-3">Backend &amp; APIs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Concurrent microservices, schema validation, and persistence stores.</p>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>Spring Boot 3</span>
+<span class="text-secondary">88%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>FastAPI</span>
+<span class="text-secondary">93%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 93%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>PostgreSQL &amp; Redis</span>
+<span class="text-secondary">89%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 89%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>REST &amp; gRPC</span>
+<span class="text-secondary">87%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 87%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">JPA / Hibernate</span>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">SQL Tuning</span>
+</div>
+</div>
+<!-- Category 4: Security & DevOps -->
+<div class="p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between hover:border-primary/50 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary text-2xl">shield</span>
+<span class="font-label-badge text-label-badge text-primary bg-primary-container/20 px-2 py-0.5 rounded">Infra / Net</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mb-3">Security &amp; DevOps</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Hardened containers, CI/CD automated deployment, and identity assurance.</p>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>Docker &amp; Containers</span>
+<span class="text-primary">92%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>Kubernetes &amp; Helm</span>
+<span class="text-primary">82%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>AWS (ECS, S3, IAM)</span>
+<span class="text-primary">84%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-code text-xs mb-1">
+<span>OAuth2 / JWT / PGP</span>
+<span class="text-primary">90%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 90%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">GitHub Actions</span>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Linux Hardening</span>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE GITHUB PROJECTS SHOWCASE -->
+<section class="max-w-7xl mx-auto px-4 md:px-6 py-16" id="projects">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">folder_special</span>
+<span class="font-label-code text-label-code text-primary uppercase tracking-widest font-semibold">Production Artefacts</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Interactive Project Repositories</h2>
+</div>
+<!-- Filter Buttons -->
+<div class="flex flex-wrap items-center gap-2 p-1.5 rounded-xl bg-surface-container-low border border-outline-variant/40" id="filterContainer">
+<button class="project-filter-btn px-3 py-1.5 rounded-lg font-label-code text-xs font-semibold bg-primary text-on-primary shadow-sm" data-filter="all" onclick="filterProjects('all')">All</button>
+<button class="project-filter-btn px-3 py-1.5 rounded-lg font-label-code text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors" data-filter="web" onclick="filterProjects('web')">Web Apps</button>
+<button class="project-filter-btn px-3 py-1.5 rounded-lg font-label-code text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors" data-filter="python" onclick="filterProjects('python')">Python</button>
+<button class="project-filter-btn px-3 py-1.5 rounded-lg font-label-code text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors" data-filter="flutter" onclick="filterProjects('flutter')">Flutter</button>
+<button class="project-filter-btn px-3 py-1.5 rounded-lg font-label-code text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors" data-filter="java" onclick="filterProjects('java')">Java</button>
+</div>
+</div>
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projectsGrid">
+<!-- Project 1: Cloud Sentinel API -->
+<div class="project-card p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between hover:border-primary/60 transition-all duration-200 group" data-category="python">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">cloud_sync</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">cloud-sentinel-api</h3>
+</div>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded-full border border-primary/30 text-primary bg-primary/10">v2.1.0</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">
+              High-throughput microservice monitoring engine with real-time anomaly detection, zero-loss logging buffers, and Prometheus telemetry collectors.
+            </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-tertiary font-semibold">Python</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">FastAPI</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">Docker</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">Redis Stream</span>
+</div>
+</div>
+<div>
+<!-- Live Repo Metrics -->
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code text-on-surface-variant mb-4">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-yellow-400">star</span> 86</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">fork_right</span> 19</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">balance</span> MIT</span>
+</div>
+<span class="text-emerald-400 font-semibold flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span> active build
+              </span>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-code text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5" onclick="openProjectTelemetry('cloud-sentinel-api', 'Python / FastAPI Microservice Architecture', 'Handles over 12,000 req/sec sustained with sub-15ms p99 latency. Implements eBPF probe telemetry filters and asynchronous worker threads for non-blocking anomaly classification.', 'FastAPI, Uvicorn, Docker, Redis PubSub, PromQL, Grafana')">
+<span class="material-symbols-outlined text-sm">schema</span>
+<span>Architecture Specs</span>
+</button>
+<a class="p-2 rounded-lg bg-surface-container hover:text-primary transition-colors" href="https://github.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-base">terminal</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 2: Pulse Finance App -->
+<div class="project-card p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between hover:border-secondary/60 transition-all duration-200 group" data-category="flutter">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">phone_iphone</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors">pulse-finance-app</h3>
+</div>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded-full border border-secondary/30 text-secondary bg-secondary/10">v1.4.3</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">
+              Mobile biometric budget tracker with offline CRDT state synchronization, end-to-end encrypted SQLite envelopes, and reactive spending telemetry.
+            </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-secondary font-semibold">Flutter</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">Dart</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">Firebase</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">CRDT Sync</span>
+</div>
+</div>
+<div>
+<!-- Live Repo Metrics -->
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code text-on-surface-variant mb-4">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-yellow-400">star</span> 142</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">fork_right</span> 31</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">balance</span> Apache-2.0</span>
+</div>
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary"></span> iOS &amp; Android
+              </span>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-code text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5" onclick="openProjectTelemetry('pulse-finance-app', 'Cross-Platform Mobile FinTech Engine', 'Designed around conflict-free replicated data types (CRDTs) to ensure seamless local-first ledger mutations without network partition errors. Biometric authentication via Secure Enclave.', 'Flutter 3.x, Dart, Riverpod, Isar Database, Firebase Auth, AES-256')">
+<span class="material-symbols-outlined text-sm">schema</span>
+<span>Architecture Specs</span>
+</button>
+<a class="p-2 rounded-lg bg-surface-container hover:text-secondary transition-colors" href="https://github.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-base">terminal</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 3: Secure Auth Engine -->
+<div class="project-card p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between hover:border-tertiary/60 transition-all duration-200 group" data-category="java">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">passkey</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-tertiary transition-colors">secure-auth-engine</h3>
+</div>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded-full border border-tertiary/30 text-tertiary bg-tertiary/10">v3.0.0</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">
+              Enterprise JWT identity provider, asymmetric key rotation daemon, and RBAC authorization gateway featuring zero-trust perimeter verification.
+            </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-tertiary font-semibold">Java 21</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">Spring Boot 3</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">OAuth2 / OIDC</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">PostgreSQL</span>
+</div>
+</div>
+<div>
+<!-- Live Repo Metrics -->
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code text-on-surface-variant mb-4">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-yellow-400">star</span> 118</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">fork_right</span> 24</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">balance</span> GPL-3.0</span>
+</div>
+<span class="text-tertiary font-semibold flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary"></span> audited
+              </span>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-code text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5" onclick="openProjectTelemetry('secure-auth-engine', 'Asymmetric IAM &amp; Session Token Engine', 'Adheres to NIST SP 800-63B standards. Implements automated ECDSA key rotation, rate-limiting leaky buckets, and Redis distributed lock synchronization for revocation.', 'Java 21 Virtual Threads, Spring Security 6, Nimbus JOSE, Testcontainers, PostgreSQL')">
+<span class="material-symbols-outlined text-sm">schema</span>
+<span>Architecture Specs</span>
+</button>
+<a class="p-2 rounded-lg bg-surface-container hover:text-tertiary transition-colors" href="https://github.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-base">terminal</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 4: Dev Nexus Hub -->
+<div class="project-card p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between hover:border-primary/60 transition-all duration-200 group" data-category="web">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">hub</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-primary transition-colors">dev-nexus-hub</h3>
+</div>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded-full border border-primary/30 text-primary bg-primary/10">v1.0.5</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 leading-relaxed">
+              Collaborative developer workspace with real-time AST generation, sandboxed WebAssembly runtimes, and WebSocket peer-to-peer state sharing.
+            </p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-primary font-semibold">Next.js 14</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">TypeScript</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">Tailwind CSS</span>
+<span class="font-label-badge text-label-badge px-2.5 py-1 rounded bg-surface-container text-on-surface-variant">WebAssembly</span>
+</div>
+</div>
+<div>
+<!-- Live Repo Metrics -->
+<div class="pt-4 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code text-on-surface-variant mb-4">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-yellow-400">star</span> 205</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">fork_right</span> 48</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">balance</span> MIT</span>
+</div>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary"></span> live instance
+              </span>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-3">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-code text-xs font-bold transition-all text-center flex items-center justify-center gap-1.5" onclick="openProjectTelemetry('dev-nexus-hub', 'Real-time AST Collaborative Workbench', 'Utilizes Web Workers and Monaco Editor to execute client-side AST transformations. Synchronization orchestrated over WebRTC data channels with Yjs CRDT binding.', 'Next.js App Router, React 18, Yjs, WebRTC, Tailwind, Monaco Editor, WASM')">
+<span class="material-symbols-outlined text-sm">schema</span>
+<span>Architecture Specs</span>
+</button>
+<a class="p-2 rounded-lg bg-surface-container hover:text-primary transition-colors" href="https://github.com" rel="noreferrer" target="_blank">
+<span class="material-symbols-outlined text-base">terminal</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TRANSMISSION / CONTACT TERMINAL SECTION -->
+<section class="max-w-7xl mx-auto px-4 md:px-6 py-16" id="contact">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary">satellite_alt</span>
+<span class="font-label-code text-label-code text-primary uppercase tracking-widest font-semibold">Uplink Gateway</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-8">Initiate Direct Transmission</h2>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Transmission Terminal Form -->
+<div class="lg:col-span-7 p-6 sm:p-8 rounded-xl bg-surface-container-low/80 border border-outline-variant/40 backdrop-blur-md shadow-2xl">
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<span class="font-label-code text-xs text-primary font-bold">transmission_payload.sh</span>
+</div>
+<span class="font-label-badge text-label-badge text-on-surface-variant">TLS 1.3 ENCRYPTED</span>
+</div>
+<form class="space-y-5" id="contactForm" onsubmit="handleFormSubmit(event)">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div>
+<label class="block font-label-code text-xs text-on-surface-variant mb-2" for="senderName">IDENTIFIER / NAME *</label>
+<input class="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest/90 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body-md text-sm outline-none transition-all placeholder:text-outline-variant" id="senderName" placeholder="e.g. Elena Rostova" required="" type="text">
+</div>
+<div>
+<label class="block font-label-code text-xs text-on-surface-variant mb-2" for="senderEmail">SOCKET / EMAIL *</label>
+<input class="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest/90 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body-md text-sm outline-none transition-all placeholder:text-outline-variant" id="senderEmail" placeholder="name@domain.com" required="" type="email">
+</div>
+</div>
+<div>
+<label class="block font-label-code text-xs text-on-surface-variant mb-2" for="transmissionTopic">TOPIC PROTOCOL</label>
+<select class="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest/90 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body-md text-sm outline-none transition-all" id="transmissionTopic">
+<option value="opportunity">Full-Stack / Cloud Engineering Opportunity</option>
+<option value="opensource">Open-Source Project Collaboration</option>
+<option value="security">Security Telemetry &amp; Audit Consultation</option>
+<option value="general">General Engineering Inquiry</option>
+</select>
+</div>
+<div>
+<label class="block font-label-code text-xs text-on-surface-variant mb-2" for="transmissionBody">MESSAGE PAYLOAD *</label>
+<textarea class="w-full px-4 py-2.5 rounded-lg bg-surface-container-lowest/90 border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary text-on-surface font-body-md text-sm outline-none transition-all placeholder:text-outline-variant" id="transmissionBody" placeholder="Define project specifications, scope, or message..." required="" rows="4"></textarea>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-badge text-label-badge text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-emerald-400">check_circle</span>
+<span>Buffer status: ready</span>
+</span>
+<button class="px-6 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container font-label-code text-xs font-bold transition-all duration-150 active:scale-95 flex items-center gap-2 cyan-glow" id="submitBtn" type="submit">
+<span class="material-symbols-outlined text-base">send</span>
+<span>Dispatch Transmission</span>
+</button>
+</div>
+<div class="hidden p-3 rounded-lg bg-primary-container/20 border border-primary/40 text-primary font-label-code text-xs" id="formFeedback">
+              ✓ Transmission packet successfully dispatched into queue.
+            </div>
+</form>
+</div>
+<!-- Right: Direct Connection Protocols & PGP Key -->
+<div class="lg:col-span-5 space-y-6">
+<div class="p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md space-y-4">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Direct Protocols</h3>
+<div class="space-y-3">
+<a class="p-3 rounded-lg bg-surface-container flex items-center justify-between hover:border-primary/50 border border-transparent transition-all group" href="https://github.com" rel="noreferrer" target="_blank">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<div>
+<div class="font-label-code text-xs font-bold text-on-surface group-hover:text-primary transition-colors">gh::github.com/engineer</div>
+<div class="font-body-sm text-xs text-on-surface-variant">Public Repos &amp; Commits</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant group-hover:text-primary">arrow_forward</span>
+</a>
+<a class="p-3 rounded-lg bg-surface-container flex items-center justify-between hover:border-secondary/50 border border-transparent transition-all group" href="https://linkedin.com" rel="noreferrer" target="_blank">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">work</span>
+<div>
+<div class="font-label-code text-xs font-bold text-on-surface group-hover:text-secondary transition-colors">in::linkedin.com/in/kevin-dev</div>
+<div class="font-body-sm text-xs text-on-surface-variant">Professional Credentials</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant group-hover:text-secondary">arrow_forward</span>
+</a>
+<a class="p-3 rounded-lg bg-surface-container flex items-center justify-between hover:border-tertiary/50 border border-transparent transition-all group" href="mailto:kevin@engineer.dev">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">mail</span>
+<div>
+<div class="font-label-code text-xs font-bold text-on-surface group-hover:text-tertiary transition-colors">kevin@engineer.dev</div>
+<div class="font-body-sm text-xs text-on-surface-variant">Direct Mailbox Socket</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant group-hover:text-tertiary">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- PGP Verification Card -->
+<div class="p-6 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">key</span>
+<span class="font-label-code text-xs font-bold text-on-surface">PGP Public Fingerprint</span>
+</div>
+<button class="text-xs font-label-code text-primary hover:underline flex items-center gap-1" onclick="copyPGP()">
+<span class="material-symbols-outlined text-xs">content_copy</span>
+<span id="copyText">Copy Key</span>
+</button>
+</div>
+<div class="p-3 rounded bg-surface-container-lowest font-label-code text-[11px] leading-relaxed text-outline select-all break-all border border-outline-variant/20" id="pgpKeyBlock">
+              8A2F 9E14 B081 72C3 5144 0EFE 39A0 64BC D571 89EA
+            </div>
+<p class="font-body-sm text-xs text-on-surface-variant">
+              Encrypted communications welcomed. Verification keys mirrored across keyserver.ubuntu.com.
+            </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- SHARED COMPONENT: BottomNavBar (Mobile Shell Destination Anchor) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-low/90 dark:bg-surface-container-low/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-lg dark:shadow-none flex justify-around items-center px-2 py-2 max-w-7xl mx-auto">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-bold font-label-badge text-label-badge hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#overview">
+<span class="material-symbols-outlined text-xl">code</span>
+<span>Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant font-label-badge text-label-badge hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#certifications">
+<span class="material-symbols-outlined text-xl">verified</span>
+<span>Certifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant font-label-badge text-label-badge hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#projects">
+<span class="material-symbols-outlined text-xl">folder_special</span>
+<span>Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant font-label-badge text-label-badge hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#contact">
+<span class="material-symbols-outlined text-xl">terminal</span>
+<span>Contact</span>
+</a>
+</nav>
+<!-- SHARED COMPONENT: Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20 flex flex-col items-center justify-center gap-3 px-4 py-8 mb-16 md:mb-0 max-w-7xl mx-auto text-center font-body-sm text-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary text-sm">terminal</span>
+<span class="font-label-code text-label-code text-primary dark:text-primary font-bold">dev::portfolio</span>
+<span class="text-outline-variant">|</span>
+<span class="font-label-code text-xs text-on-surface-variant">cluster-node::kevin-prod</span>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-6 font-body-sm text-body-sm">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:opacity-80" href="https://github.com" rel="noreferrer" target="_blank">Source Code</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:opacity-80" href="#projects">Architecture Docs</a>
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:opacity-80" onclick="copyPGP()">Public PGP Key</button>
+</div>
+<p class="text-on-surface-variant dark:text-on-surface-variant font-body-sm text-body-sm">
+      © 2024 Built with precision. All telemetry normal.
+    </p>
+</footer>
+<!-- TELEMETRY / ARCHITECTURE MODAL -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-md p-4 hidden" id="telemetryModal">
+<div class="bg-surface-container-low border border-outline-variant/60 rounded-xl max-w-xl w-full p-6 shadow-2xl relative purple-glow">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">schema</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface" id="modalProjectTitle">Specification</h3>
+</div>
+<button class="text-on-surface-variant hover:text-primary p-1" onclick="closeModal('telemetryModal')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="py-4 space-y-4">
+<div>
+<span class="font-label-code text-xs text-primary block mb-1">MODULE CLASSIFICATION</span>
+<p class="font-body-md text-on-surface font-semibold" id="modalModuleType"></p>
+</div>
+<div>
+<span class="font-label-code text-xs text-on-surface-variant block mb-1">INTERNAL ARCHITECTURE &amp; TOPOLOGY</span>
+<p class="font-body-sm text-on-surface-variant leading-relaxed" id="modalDescription"></p>
+</div>
+<div>
+<span class="font-label-code text-xs text-tertiary block mb-1">DEPENDENCY TREE</span>
+<div class="p-2.5 rounded bg-surface-container-lowest font-label-code text-xs text-on-surface border border-outline-variant/20" id="modalDependencies"></div>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant/30 flex justify-end">
+<button class="px-4 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant font-label-code text-xs font-semibold text-on-surface" onclick="closeModal('telemetryModal')">Close Inspector</button>
+</div>
+</div>
+</div>
+<!-- CERTIFICATE VERIFICATION MODAL -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-md p-4 hidden" id="certModal">
+<div class="bg-surface-container-low border border-outline-variant/60 rounded-xl max-w-lg w-full p-6 shadow-2xl relative cyan-glow">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Verified Credential</h3>
+</div>
+<button class="text-on-surface-variant hover:text-primary p-1" onclick="closeModal('certModal')">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<div class="py-4 space-y-3">
+<h4 class="font-headline-sm text-headline-sm font-semibold text-primary" id="certTitle"></h4>
+<div class="flex items-center justify-between font-label-code text-xs text-on-surface-variant">
+<span id="certIssuer"></span>
+<span class="text-tertiary font-bold" id="certDate"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="certDetail"></p>
+<div class="p-3 rounded bg-surface-container-lowest border border-outline-variant/30 mt-2">
+<span class="font-label-badge text-label-badge text-on-surface-variant block mb-1">IMMUTABLE CERTIFICATE HASH / ID</span>
+<span class="font-label-code text-xs text-secondary font-bold select-all" id="certId"></span>
+</div>
+</div>
+<div class="pt-3 border-t border-outline-variant/30 flex justify-end gap-2">
+<button class="px-4 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant font-label-code text-xs font-semibold text-on-surface" onclick="closeModal('certModal')">Acknowledge</button>
+</div>
+</div>
+</div>
+<!-- INTERACTIVE INLINE CLIENT SCRIPTS -->
+<script>
+    // Live Typewriter Effect for Hero Headline
+    const titles = [
+      "Full-Stack & Cloud Engineer",
+      "Software Systems Scholar",
+      "Resilient Distributed Architect",
+      "Security & Mobile Crafter"
+    ];
+    let titleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById("typewriter");
+
+    function typeLoop() {
+      const currentTitle = titles[titleIndex];
+      if (isDeleting) {
+        typewriterElement.textContent = currentTitle.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterElement.textContent = currentTitle.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typingSpeed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === currentTitle.length) {
+        typingSpeed = 2200; // Hold on completed word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        titleIndex = (titleIndex + 1) % titles.length;
+        typingSpeed = 400;
+      }
+
+      setTimeout(typeLoop, typingSpeed);
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeLoop, 800);
+    });
+
+    // Project Filter Logic
+    function filterProjects(category) {
+      const cards = document.querySelectorAll(".project-card");
+      const buttons = document.querySelectorAll(".project-filter-btn");
+
+      buttons.forEach(btn => {
+        if (btn.getAttribute("data-filter") === category) {
+          btn.className = "project-filter-btn px-3 py-1.5 rounded-lg font-label-code text-xs font-semibold bg-primary text-on-primary shadow-sm";
+        } else {
+          btn.className = "project-filter-btn px-3 py-1.5 rounded-lg font-label-code text-xs font-semibold text-on-surface-variant hover:text-primary transition-colors";
+        }
+      });
+
+      cards.forEach(card => {
+        if (category === "all" || card.getAttribute("data-category") === category) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    }
+
+    // Telemetry Modal Control
+    function openProjectTelemetry(title, modType, desc, deps) {
+      document.getElementById("modalProjectTitle").textContent = title;
+      document.getElementById("modalModuleType").textContent = modType;
+      document.getElementById("modalDescription").textContent = desc;
+      document.getElementById("modalDependencies").textContent = deps;
+      document.getElementById("telemetryModal").classList.remove("hidden");
+    }
+
+    // Cert Modal Control
+    function openCertModal(title, issuer, date, desc, certId) {
+      document.getElementById("certTitle").textContent = title;
+      document.getElementById("certIssuer").textContent = issuer;
+      document.getElementById("certDate").textContent = date;
+      document.getElementById("certDetail").textContent = desc;
+      document.getElementById("certId").textContent = certId;
+      document.getElementById("certModal").classList.remove("hidden");
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add("hidden");
+    }
+
+    // Copy PGP Key Action
+    function copyPGP() {
+      const key = "8A2F 9E14 B081 72C3 5144 0EFE 39A0 64BC D571 89EA";
+      navigator.clipboard.writeText(key);
+      const textSpan = document.getElementById("copyText");
+      if (textSpan) {
+        textSpan.textContent = "Copied!";
+        setTimeout(() => { textSpan.textContent = "Copy Key"; }, 2000);
+      }
+    }
+
+    // Contact Form Handle
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const feedback = document.getElementById("formFeedback");
+      const btn = document.getElementById("submitBtn");
+      
+      btn.disabled = true;
+      btn.innerHTML = `<span class="material-symbols-outlined text-base animate-spin">refresh</span> Dispatching...`;
+
+      setTimeout(() => {
+        feedback.classList.remove("hidden");
+        btn.innerHTML = `<span class="material-symbols-outlined text-base">check</span> Transmitted`;
+        document.getElementById("contactForm").reset();
+        
+        setTimeout(() => {
+          feedback.classList.add("hidden");
+          btn.disabled = false;
+          btn.innerHTML = `<span class="material-symbols-outlined text-base">send</span> Dispatch Transmission`;
+        }, 5000);
+      }, 900);
+    }
+  </script>
+</body></html>

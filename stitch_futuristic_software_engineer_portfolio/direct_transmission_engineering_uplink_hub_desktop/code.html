@@ -1,0 +1,626 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Direct Transmission &amp; Uplink Console - Contact &amp; Collaboration Hub</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CDN & Custom Config -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#571bc1",
+            "error": "#ffb4ab",
+            "surface": "#0f131c",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-fixed-variant": "#004e5c",
+            "inverse-on-surface": "#2c3039",
+            "surface-container": "#1c2028",
+            "outline-variant": "#3d494c",
+            "on-tertiary-container": "#00415a",
+            "on-secondary-fixed": "#23005c",
+            "primary": "#4cd7f6",
+            "tertiary-fixed": "#c4e7ff",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "surface-dim": "#0f131c",
+            "on-primary-fixed": "#001f26",
+            "tertiary-container": "#23b2ec",
+            "surface-tint": "#4cd7f6",
+            "secondary-fixed": "#e9ddff",
+            "outline": "#869397",
+            "on-secondary-container": "#c4abff",
+            "on-primary-container": "#00424f",
+            "on-primary": "#003640",
+            "inverse-primary": "#00687a",
+            "error-container": "#93000a",
+            "on-error-container": "#ffdad6",
+            "surface-container-high": "#262a33",
+            "on-tertiary-fixed": "#001e2c",
+            "tertiary": "#7bd0ff",
+            "background": "#0f131c",
+            "primary-container": "#06b6d4",
+            "primary-fixed-dim": "#4cd7f6",
+            "on-tertiary-fixed-variant": "#004c69",
+            "surface-container-low": "#181c24",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-background": "#dfe2ee",
+            "surface-container-lowest": "#0a0e16",
+            "on-error": "#690005",
+            "primary-fixed": "#acedff",
+            "inverse-surface": "#dfe2ee",
+            "on-surface": "#dfe2ee",
+            "surface-container-highest": "#31353e",
+            "on-secondary": "#3c0091",
+            "surface-bright": "#353942",
+            "secondary": "#d0bcff",
+            "on-surface-variant": "#bcc9cd",
+            "surface-variant": "#31353e",
+            "on-tertiary": "#00354a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "margin": "3rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "display-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-badge": ["JetBrains Mono", "monospace"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-code": ["JetBrains Mono", "monospace"]
+          },
+          "fontSize": {
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    /* Subtle background grid pattern mimicking telemetry workbench optics */
+    .telemetry-grid {
+      background-image: radial-gradient(rgba(76, 215, 246, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .glow-cyan-card {
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    }
+    .glow-cyan-btn {
+      box-shadow: 0 0 16px rgba(6, 182, 212, 0.35);
+    }
+    .glow-purple-pill {
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary selection:text-on-primary telemetry-grid">
+<!-- ================= TOP APP BAR (Shared Components JSON Anchor) ================= -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 py-3 max-w-7xl mx-auto bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm dark:shadow-none">
+<!-- Brand / Leading -->
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="terminal">terminal</span>
+<a class="font-label-code text-label-code text-primary dark:text-primary tracking-wider font-bold" href="#">dev::portfolio</a>
+</div>
+<!-- Desktop Navigation Cluster (Semantic Shell Rule: Contact is active destination) -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#overview">Overview</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#certifications">Certifications</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#projects">Projects</a>
+<a class="font-body-sm text-body-sm text-primary dark:text-primary font-bold px-3 py-1 rounded-full bg-primary/10 border border-primary/30 flex items-center gap-1.5 shadow-[0_0_12px_rgba(76,215,246,0.25)]" href="#contact">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        Contact
+      </a>
+</nav>
+<!-- Trailing Action & Status -->
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/40">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-code text-label-code text-primary dark:text-primary">Status: Available</span>
+</div>
+<button class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-headline-sm text-body-sm font-bold glow-cyan-btn hover:bg-tertiary-container transition-all active:scale-95 flex items-center gap-1">
+<span>Hire Me</span>
+<span class="material-symbols-outlined text-sm font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</header>
+<!-- ================= MAIN CONTENT WRAPPER ================= -->
+<main class="pt-24 pb-16 px-4 md:px-8 max-w-7xl mx-auto space-y-10">
+<!-- 1. HEADER / HUD BANNER -->
+<section class="relative overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-low/70 backdrop-blur-xl p-6 md:p-10 glow-cyan-card">
+<!-- Decorative ambient gradient flare -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-80 h-80 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 space-y-4">
+<!-- System breadcrumbs -->
+<div class="flex items-center gap-2 font-label-badge text-label-badge text-primary uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+<span>[UPLINK GATEWAY // SECURE COMMS MATRIX]</span>
+<span class="text-outline-variant">::</span>
+<span class="text-secondary font-label-code">NODE_ID_KEVIN_0x01</span>
+</div>
+<!-- Title -->
+<h1 class="font-headline-lg text-headline-lg md:font-display md:text-display font-extrabold tracking-tight text-on-surface">
+          Direct Transmission &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary-fixed-dim to-secondary">Engineering Collaboration</span>
+</h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+          Establish encrypted handshake protocols for distributed software engineering roles, technical advisory, open-source architectural contributions, or graduate research opportunities.
+        </p>
+<!-- Quick Transmission Telemetry Metrics Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-4 border-t border-outline-variant/20">
+<!-- Metric 1 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5" data-icon="speed">speed</span>
+<div>
+<div class="font-label-badge text-label-badge text-outline">Response Latency</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">&lt; 4 hrs (P99 SLA)</div>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5" data-icon="lock">lock</span>
+<div>
+<div class="font-label-badge text-label-badge text-outline">Communication Handshake</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">TLS 1.3 / E2EE Encrypted</div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5" data-icon="check_circle">check_circle</span>
+<div>
+<div class="font-label-badge text-label-badge text-outline">Current Availability</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">Open to Full-Stack / Cloud</div>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="p-3 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl mt-0.5" data-icon="verified_user">verified_user</span>
+<div>
+<div class="font-label-badge text-label-badge text-outline">PGP Key Status</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">4096R/0x89EAF Verified</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. TWO-COLUMN INTERACTIVE TRANSMISSION MATRIX -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN: Encrypted Message Dispatch Terminal (7 Columns) -->
+<section class="lg:col-span-7 rounded-xl border border-outline-variant/40 bg-surface-container-low/80 backdrop-blur-xl shadow-2xl overflow-hidden">
+<!-- Terminal Window Chrome Header -->
+<div class="px-4 py-3 bg-surface-container-lowest border-b border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+<span class="ml-2 font-label-code text-label-code text-outline-variant">|</span>
+<span class="font-label-code text-label-code text-primary font-medium">terminal::dispatch_buffer</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-badge text-label-badge text-outline uppercase tracking-wider">SOCKET:</span>
+<span class="font-label-code text-label-code text-secondary bg-secondary-container/20 px-2 py-0.5 rounded border border-secondary/20">session::socket_0x8f2c</span>
+</div>
+</div>
+<!-- Terminal Form Body -->
+<form class="p-6 space-y-5" id="transmission-form" onsubmit="event.preventDefault(); simulateSend();">
+<!-- Row 1: Sender Name & Return Socket -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Sender ID -->
+<div class="space-y-1.5">
+<label class="flex items-center justify-between font-label-code text-label-code text-on-surface" for="sender-name">
+<span>Sender Identification</span>
+<span class="text-error font-body-sm text-xs">*required</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/90 border border-outline-variant/50 rounded-lg px-3.5 py-2.5 text-on-surface font-body-md text-body-md placeholder:text-outline/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" id="sender-name" placeholder="e.g. Dr. Elena Vance / Vercel Infra Team" required="" type="text">
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-lg" data-icon="badge">badge</span>
+</div>
+</div>
+<!-- Return Socket / Email -->
+<div class="space-y-1.5">
+<label class="flex items-center justify-between font-label-code text-label-code text-on-surface" for="sender-email">
+<span>Return Socket (Email)</span>
+<span class="font-label-badge text-label-badge text-primary bg-primary/10 px-1.5 py-0.5 rounded border border-primary/20">REGEX OK</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/90 border border-outline-variant/50 rounded-lg px-3.5 py-2.5 text-on-surface font-body-md text-body-md placeholder:text-outline/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" id="sender-email" placeholder="name@organization.domain" required="" type="email">
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-lg" data-icon="alternate_email">alternate_email</span>
+</div>
+</div>
+</div>
+<!-- Protocol Selector (Pills) -->
+<div class="space-y-2">
+<label class="block font-label-code text-label-code text-on-surface">
+              Collaboration Protocol Directive
+            </label>
+<div class="flex flex-wrap gap-2">
+<button class="protocol-btn active px-3 py-1.5 rounded-lg border border-primary bg-primary/20 text-primary font-label-code text-label-code transition-all" onclick="selectProtocol(this)" type="button">
+                Full-Stack Software Engineering
+              </button>
+<button class="protocol-btn px-3 py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code hover:border-primary/50 transition-all" onclick="selectProtocol(this)" type="button">
+                Cloud &amp; Microservices Infrastructure
+              </button>
+<button class="protocol-btn px-3 py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code hover:border-primary/50 transition-all" onclick="selectProtocol(this)" type="button">
+                Security &amp; Code Audit
+              </button>
+<button class="protocol-btn px-3 py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code hover:border-primary/50 transition-all" onclick="selectProtocol(this)" type="button">
+                Research &amp; Academic Inquiry
+              </button>
+<button class="protocol-btn px-3 py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code hover:border-primary/50 transition-all" onclick="selectProtocol(this)" type="button">
+                Advisory / Mentorship
+              </button>
+</div>
+</div>
+<!-- Priority / Urgency Selector -->
+<div class="space-y-2">
+<label class="block font-label-code text-label-code text-on-surface">
+              Urgency / Execution Priority Level
+            </label>
+<div class="grid grid-cols-3 gap-3">
+<label class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/40 cursor-pointer hover:border-outline transition-all">
+<input checked="" class="text-primary focus:ring-primary bg-surface-container" name="priority" type="radio" value="p2">
+<div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">Standard P2</div>
+<div class="font-label-badge text-label-badge text-outline">Within 24-48h</div>
+</div>
+</label>
+<label class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/40 cursor-pointer hover:border-outline transition-all">
+<input class="text-primary focus:ring-primary bg-surface-container" name="priority" type="radio" value="p1">
+<div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">Elevated P1</div>
+<div class="font-label-badge text-label-badge text-primary">Within 6-12h</div>
+</div>
+</label>
+<label class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/40 cursor-pointer hover:border-outline transition-all">
+<input class="text-primary focus:ring-primary bg-surface-container" name="priority" type="radio" value="p0">
+<div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">Critical RFC P0</div>
+<div class="font-label-badge text-label-badge text-secondary">Immediate Push</div>
+</div>
+</label>
+</div>
+</div>
+<!-- Transmission Payload Textarea -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between font-label-code text-label-code text-on-surface">
+<span>Transmission Payload Buffer</span>
+<div class="flex items-center gap-2">
+<span class="text-outline font-label-badge text-label-badge">FORMAT:</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-badge text-label-badge border border-outline-variant/40">MARKDOWN ENABLED</span>
+</div>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface-container-lowest/90 border border-outline-variant/50 rounded-lg p-3.5 text-on-surface font-label-code text-label-code placeholder:text-outline/40 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all leading-relaxed resize-y" placeholder="/* Specify mission parameters, architectural overview, repository URLs, or project milestones. Code blocks and Markdown syntax supported. */" required="" rows="6"></textarea>
+</div>
+</div>
+<!-- Security Attestation Checkbox -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest/70 border border-outline-variant/30">
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary bg-surface-container h-4 w-4" type="checkbox">
+<span class="font-label-code text-label-code text-on-surface">Sign payload with PGP public key signature verification</span>
+</label>
+<span class="font-label-badge text-label-badge text-secondary font-mono">GPG_ACTIVE</span>
+</div>
+<!-- Action CTA & Reset -->
+<div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+<button class="w-full sm:w-auto px-6 py-3 rounded-lg bg-primary-container text-on-primary font-headline-sm text-body-md font-bold glow-cyan-btn hover:bg-tertiary-container transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-lg" data-icon="send">send</span>
+<span>Dispatch Transmission [Enter ↵]</span>
+</button>
+<button class="w-full sm:w-auto px-5 py-3 rounded-lg border border-outline-variant/40 bg-surface-container-lowest text-on-surface-variant font-label-code text-label-code hover:text-on-surface hover:border-outline transition-all active:scale-95 flex items-center justify-center gap-1.5" type="reset">
+<span class="material-symbols-outlined text-base" data-icon="refresh">refresh</span>
+<span>Reset Buffer</span>
+</button>
+</div>
+<!-- Simulated Status Log -->
+<div class="p-2.5 rounded bg-surface-container-lowest border border-outline-variant/30 font-label-code text-label-code text-on-surface-variant flex items-center justify-between">
+<div class="flex items-center gap-2 truncate">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+<span class="text-xs">● Socket status: <span class="text-primary font-semibold">LISTENING</span> on port 443</span>
+</div>
+<span class="text-xs text-outline font-mono hidden sm:inline">Cipher: CHACHA20-POLY1305</span>
+</div>
+</form>
+</section>
+<!-- RIGHT COLUMN: Direct Verification Protocols & Network Nodes (5 Columns) -->
+<section class="lg:col-span-5 space-y-4">
+<!-- Header title for right column -->
+<div class="flex items-center justify-between px-1">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+            Direct Verification Nodes
+          </h2>
+<span class="font-label-badge text-label-badge text-secondary bg-secondary-container/20 px-2 py-0.5 rounded border border-secondary/30">
+            5 NODES ONLINE
+          </span>
+</div>
+<!-- Node 1: Direct Mailbox Gateway -->
+<div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low/70 backdrop-blur-md hover:border-primary/40 transition-all space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-2 rounded-lg bg-surface-container-lowest text-primary border border-outline-variant/30">
+<span class="material-symbols-outlined text-lg" data-icon="mail">mail</span>
+</div>
+<div>
+<div class="font-label-code text-label-code text-on-surface font-bold">Direct Mailbox Gateway</div>
+<div class="font-label-badge text-label-badge text-primary">STATUS: PRIMARY MX ONLINE</div>
+</div>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-lowest text-outline hover:text-primary hover:border-primary/40 border border-outline-variant/30 transition-all" onclick="copyToClipboard('kevin@engineer.dev', this)" title="Copy Address">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest font-label-code text-label-code text-on-surface-variant select-all">
+            kevin@engineer.dev
+          </div>
+</div>
+<!-- Node 2: GitHub Identity -->
+<div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low/70 backdrop-blur-md hover:border-primary/40 transition-all space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-2 rounded-lg bg-surface-container-lowest text-tertiary border border-outline-variant/30">
+<span class="material-symbols-outlined text-lg" data-icon="code">code</span>
+</div>
+<div>
+<div class="font-label-code text-label-code text-on-surface font-bold">GitHub Developer Identity</div>
+<div class="font-label-badge text-label-badge text-outline">18+ REPOS // 520+ COMMITS</div>
+</div>
+</div>
+<a class="p-2 rounded-lg bg-surface-container-lowest text-outline hover:text-primary border border-outline-variant/30 transition-all" href="https://github.com" rel="noopener noreferrer" target="_blank" title="Open GitHub Profile">
+<span class="material-symbols-outlined text-base" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest">
+<span class="font-label-code text-label-code text-primary">gh::github.com/engineer</span>
+<span class="font-label-badge text-label-badge text-secondary bg-secondary-container/20 px-2 py-0.5 rounded border border-secondary/20">VERIFIED GPG</span>
+</div>
+</div>
+<!-- Node 3: LinkedIn Network Matrix -->
+<div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low/70 backdrop-blur-md hover:border-primary/40 transition-all space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-2 rounded-lg bg-surface-container-lowest text-secondary border border-outline-variant/30">
+<span class="material-symbols-outlined text-lg" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<div>
+<div class="font-label-code text-label-code text-on-surface font-bold">Professional Network Matrix</div>
+<div class="font-label-badge text-label-badge text-outline">DISTRIBUTED SYSTEMS &amp; CLOUD</div>
+</div>
+</div>
+<a class="p-2 rounded-lg bg-surface-container-lowest text-outline hover:text-primary border border-outline-variant/30 transition-all" href="https://linkedin.com" rel="noopener noreferrer" target="_blank" title="Open LinkedIn Profile">
+<span class="material-symbols-outlined text-base" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest">
+<span class="font-label-code text-label-code text-on-surface-variant">in::linkedin.com/in/kevin-dev</span>
+<span class="font-label-badge text-label-badge text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">VERIFIED</span>
+</div>
+</div>
+<!-- Node 4: Discord Real-Time Terminal Chat -->
+<div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low/70 backdrop-blur-md hover:border-primary/40 transition-all space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-2 rounded-lg bg-surface-container-lowest text-primary border border-outline-variant/30">
+<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
+</div>
+<div>
+<div class="font-label-code text-label-code text-on-surface font-bold">Real-Time Sync / Discord</div>
+<div class="font-label-badge text-label-badge text-outline">OPEN-SOURCE SYNC &amp; HACKATHONS</div>
+</div>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-lowest text-outline hover:text-primary border border-outline-variant/30 transition-all" onclick="copyToClipboard('kevin_kernel', this)" title="Copy Discord Tag">
+<span class="material-symbols-outlined text-base" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest font-label-code text-label-code text-on-surface-variant">
+            discord::@kevin_kernel
+          </div>
+</div>
+<!-- Node 5: Public PGP Encryption Block & Fingerprint -->
+<div class="p-4 rounded-xl border border-secondary/30 bg-surface-container-low/80 backdrop-blur-md glow-purple-pill space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="key">key</span>
+<span class="font-label-code text-label-code text-on-surface font-bold">Public PGP Encryption Block</span>
+</div>
+<span class="font-label-badge text-label-badge text-secondary bg-secondary-container/20 px-2 py-0.5 rounded border border-secondary/20">4096-BIT RSA</span>
+</div>
+<!-- Armored block preview -->
+<pre class="p-2.5 rounded bg-surface-container-lowest border border-outline-variant/30 font-label-code text-xs text-outline-variant leading-tight overflow-x-auto select-all">-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: OpenPGP.js v5.1.0
+Comment: Direct Transmission Uplink Key 0x89EA
+
+mQGNBF/4+x8BDAC2zC4yV8T7Xn0M4iPzWJ6vM3qH7...
+=8A2F 9E14 B081 72C3 5144 0EFE 39A0 64BC D571 89EA
+-----END PGP PUBLIC KEY BLOCK-----</pre>
+<!-- Fingerprint -->
+<div class="space-y-1">
+<div class="font-label-badge text-label-badge text-outline uppercase">Key Fingerprint:</div>
+<div class="font-label-code text-xs text-primary font-mono bg-surface-container-lowest p-2 rounded border border-outline-variant/30 break-all select-all">
+              8A2F 9E14 B081 72C3 5144 0EFE 39A0 64BC D571 89EA
+            </div>
+</div>
+<!-- PGP Action Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-3 rounded-lg border border-secondary/40 bg-secondary-container/10 text-secondary hover:bg-secondary-container/20 font-label-code text-label-code flex items-center justify-center gap-1.5 transition-all" onclick="copyToClipboard('8A2F 9E14 B081 72C3 5144 0EFE 39A0 64BC D571 89EA', this)">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+<span>Copy Fingerprint</span>
+</button>
+<button class="flex-1 py-1.5 px-3 rounded-lg border border-outline-variant/40 bg-surface-container-lowest text-on-surface hover:border-secondary/40 font-label-code text-label-code flex items-center justify-center gap-1.5 transition-all" onclick="alert('Downloading kevin_public_key_0x89EA.asc file...')">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+<span>.asc Keyfile</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- 3. INTERACTIVE SCHEDULING / AVAILABILITY SYNC MODULE -->
+<section class="rounded-xl border border-outline-variant/30 bg-surface-container-low/70 backdrop-blur-xl p-6 md:p-8 space-y-6 glow-cyan-card">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant/20 pb-5">
+<div>
+<div class="flex items-center gap-2 font-label-badge text-label-badge text-primary uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+<span>Real-Time Calendar Uplink</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-on-surface">Book an Engineering Handshake</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Reserve dedicated time for architectural reviews, engineering role deep-dives, or code walkthroughs.</p>
+</div>
+<!-- Timezone Selector -->
+<div class="flex items-center gap-2 p-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant/40 self-start md:self-auto">
+<span class="font-label-badge text-label-badge text-outline pl-2">TIMEZONE:</span>
+<button class="tz-btn px-2.5 py-1 rounded bg-primary/20 text-primary border border-primary/40 font-label-code text-label-code" onclick="switchTz(this, 'UTC+3 (Nairobi)')">UTC+3 (EAT)</button>
+<button class="tz-btn px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-code text-label-code" onclick="switchTz(this, 'US Eastern (EST)')">US EST</button>
+<button class="tz-btn px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface font-label-code text-label-code" onclick="switchTz(this, 'UTC Standard')">UTC</button>
+</div>
+</div>
+<!-- Slot Previews Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Slot 1: 15-min Discovery -->
+<div class="p-5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest/80 flex flex-col justify-between gap-4 hover:border-primary/50 transition-all">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">15-MINUTE SLOT</span>
+<span class="font-label-code text-xs text-outline">Next Slot: Tomorrow 14:00 EAT</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Technical Discovery / Intro Call</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-level alignment on engineering requirements, team culture, stack synergies, and role expectations.</p>
+</div>
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container hover:bg-primary/20 border border-outline-variant/40 hover:border-primary text-primary font-headline-sm text-body-sm font-semibold flex items-center justify-center gap-2 transition-all" onclick="alert('Opening Calendly / Cal.com 15-min discovery booking widget...')">
+<span class="material-symbols-outlined text-base" data-icon="event_available">event_available</span>
+<span>Reserve 15-Min Discovery</span>
+</button>
+</div>
+<!-- Slot 2: 30-min Deep Dive -->
+<div class="p-5 rounded-xl border border-secondary/40 bg-surface-container-lowest/80 flex flex-col justify-between gap-4 hover:border-secondary transition-all">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge text-secondary bg-secondary-container/20 px-2 py-0.5 rounded border border-secondary/20">30-MINUTE SLOT</span>
+<span class="font-label-code text-xs text-outline">Next Slot: Thursday 16:30 EAT</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Architecture Review &amp; Code Deep-Dive</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">In-depth discussion on microservices topology, schema migrations, concurrency patterns, and system benchmarks.</p>
+</div>
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container hover:bg-secondary-container/30 border border-outline-variant/40 hover:border-secondary text-secondary font-headline-sm text-body-sm font-semibold flex items-center justify-center gap-2 transition-all" onclick="alert('Opening Calendly / Cal.com 30-min architecture session booking widget...')">
+<span class="material-symbols-outlined text-base" data-icon="developer_board">developer_board</span>
+<span>Reserve 30-Min Architecture Session</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- ================= FOOTER (Shared Components JSON Anchor) ================= -->
+<footer class="flex flex-col items-center justify-center gap-3 px-4 py-8 mb-16 md:mb-0 max-w-7xl mx-auto text-center border-t border-outline-variant/20 bg-surface-container-lowest dark:bg-surface-container-lowest">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="terminal">terminal</span>
+<span class="font-label-code text-label-code text-primary dark:text-primary">dev::portfolio</span>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-wrap items-center justify-center gap-6 my-1">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#source-code">Source Code</a>
+<span class="text-outline-variant text-xs">/</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#architecture-docs">Architecture Docs</a>
+<span class="text-outline-variant text-xs">/</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#public-pgp-key">Public PGP Key</a>
+</div>
+<!-- Copyright & Telemetry Status -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      © 2024 Built with precision. All telemetry normal.
+    </p>
+</footer>
+<!-- ================= BOTTOM NAV BAR (Shared Components JSON Anchor - Mobile Only) ================= -->
+<div class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 max-w-7xl mx-auto bg-surface-container-low/90 dark:bg-surface-container-low/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-lg dark:shadow-none">
+<!-- Item 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#overview">
+<span class="material-symbols-outlined text-xl" data-icon="code">code</span>
+<span class="font-label-badge text-label-badge">Overview</span>
+</a>
+<!-- Item 2: Certifications -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#certifications">
+<span class="material-symbols-outlined text-xl" data-icon="verified">verified</span>
+<span class="font-label-badge text-label-badge">Certifications</span>
+</a>
+<!-- Item 3: Projects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#projects">
+<span class="material-symbols-outlined text-xl" data-icon="folder_special">folder_special</span>
+<span class="font-label-badge text-label-badge">Projects</span>
+</a>
+<!-- Item 4: Contact (ACTIVE - Direct Match Rule) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-bold hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#contact">
+<span class="material-symbols-outlined text-xl font-bold" data-icon="terminal">terminal</span>
+<span class="font-label-badge text-label-badge">Contact</span>
+</a>
+</div>
+<!-- Micro-Interactions Script -->
+<script>
+    function selectProtocol(button) {
+      document.querySelectorAll('.protocol-btn').forEach(btn => {
+        btn.classList.remove('bg-primary/20', 'text-primary', 'border-primary');
+        btn.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant/40');
+      });
+      button.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'border-outline-variant/40');
+      button.classList.add('bg-primary/20', 'text-primary', 'border-primary');
+    }
+
+    function switchTz(btn, tzLabel) {
+      document.querySelectorAll('.tz-btn').forEach(b => {
+        b.classList.remove('bg-primary/20', 'text-primary', 'border', 'border-primary/40');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.remove('text-on-surface-variant');
+      btn.classList.add('bg-primary/20', 'text-primary', 'border', 'border-primary/40');
+    }
+
+    function copyToClipboard(text, triggerEl) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalContent = triggerEl.innerHTML;
+        triggerEl.innerHTML = '<span class="material-symbols-outlined text-sm text-primary" data-icon="check">check</span>';
+        setTimeout(() => {
+          triggerEl.innerHTML = originalContent;
+        }, 1800);
+      });
+    }
+
+    function simulateSend() {
+      alert("Transmission handshake initiated! Payload dispatched across TLS 1.3 socket.");
+    }
+  </script>
+</body></html>

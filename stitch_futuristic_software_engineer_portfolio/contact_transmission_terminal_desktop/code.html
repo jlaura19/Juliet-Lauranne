@@ -1,0 +1,734 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>dev::portfolio // Contact &amp; Secure Transmission Hub</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#690005",
+            "on-primary": "#003640",
+            "surface-tint": "#4cd7f6",
+            "inverse-surface": "#dfe2ee",
+            "on-tertiary-fixed-variant": "#004c69",
+            "surface-container-lowest": "#0a0e16",
+            "surface-dim": "#0f131c",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "surface-container-high": "#262a33",
+            "outline": "#869397",
+            "on-secondary-fixed": "#23005c",
+            "surface-variant": "#31353e",
+            "inverse-on-surface": "#2c3039",
+            "error-container": "#93000a",
+            "tertiary-container": "#23b2ec",
+            "surface": "#0f131c",
+            "secondary": "#d0bcff",
+            "surface-container-low": "#181c24",
+            "surface-container": "#1c2028",
+            "tertiary": "#7bd0ff",
+            "primary": "#4cd7f6",
+            "tertiary-fixed": "#c4e7ff",
+            "surface-container-highest": "#31353e",
+            "secondary-container": "#571bc1",
+            "primary-fixed": "#acedff",
+            "on-secondary": "#3c0091",
+            "surface-bright": "#353942",
+            "on-error-container": "#ffdad6",
+            "on-tertiary": "#00354a",
+            "secondary-fixed": "#e9ddff",
+            "error": "#ffb4ab",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-fixed": "#001f26",
+            "on-surface": "#dfe2ee",
+            "inverse-primary": "#00687a",
+            "on-primary-fixed-variant": "#004e5c",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-container": "#00415a",
+            "on-primary-container": "#00424f",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-tertiary-fixed": "#001e2c",
+            "background": "#0f131c",
+            "outline-variant": "#3d494c",
+            "primary-container": "#06b6d4",
+            "primary-fixed-dim": "#4cd7f6",
+            "on-surface-variant": "#bcc9cd",
+            "on-background": "#dfe2ee"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "label-code": ["JetBrains Mono"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "label-badge": ["JetBrains Mono"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Subtle technical grid background */
+    .tech-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(15, 19, 28, 0.5);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(76, 215, 246, 0.2);
+      border-radius: 2px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(76, 215, 246, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen selection:bg-primary-container selection:text-surface-container-lowest font-body-md text-body-md relative overflow-x-hidden tech-grid">
+<!-- Glow Ambient Blobs -->
+<div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="fixed bottom-1/4 right-10 w-[450px] h-[450px] bg-secondary-container/20 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+<!-- SHARED COMPONENT: TopAppBar (Web Desktop Focus) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+<!-- Brand Logo / Hotspot -->
+<a class="flex items-center gap-2 group transition-transform duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+<span class="font-label-code text-label-code text-primary tracking-wider font-bold">dev::portfolio</span>
+<span class="font-label-code text-label-code text-outline-variant">node::contact</span>
+</a>
+<!-- Desktop Nav Array (Overview, Certifications, Projects, Contact) -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#overview">Overview</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#certifications">Certifications</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#projects">Projects</a>
+<!-- Active Nav Tab: Contact (Exact match to active screen destination) -->
+<a class="font-body-sm text-body-sm text-primary font-bold flex items-center gap-1.5 px-3 py-1 bg-surface-container-high/60 rounded-full border border-primary/30 shadow-[0_0_12px_rgba(76,215,246,0.15)]" href="#contact">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>Contact</span>
+</a>
+</nav>
+<!-- Trailing Action: Status & Schedule Sync Trigger -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/40">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-badge text-label-badge text-primary tracking-wider">Status: Available</span>
+</div>
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-variant hover:bg-surface-bright text-primary border border-primary/20 font-label-code text-label-code transition-all active:scale-95 shadow-[0_0_15px_-3px_rgba(76,215,246,0.2)]" onclick="document.getElementById('cal-modal').scrollIntoView({behavior: 'smooth'})">
+<span class="material-symbols-outlined text-sm">calendar_month</span>
+<span>Schedule Sync</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Container -->
+<main class="max-w-7xl mx-auto px-4 pt-28 pb-20">
+<!-- 1. Hero Header & Transmission Telemetry Status -->
+<section class="mb-12">
+<!-- Eyebrow Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/80 border border-primary/30 mb-4 backdrop-blur-md">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="terminal">terminal</span>
+<span class="font-label-code text-label-code text-primary uppercase">[ PROTOCOL: SECURE_TRANSMISSION // E2EE_SOCKET ]</span>
+</div>
+<!-- Main Headline with Gradient Glow -->
+<h1 class="font-headline-lg text-headline-lg md:font-display md:text-display text-on-surface max-w-4xl tracking-tight mb-4">
+        Initiate Contact &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">Engineering Collaboration</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mb-8 leading-relaxed">
+        Direct communication channels for distributed systems engineering, security audits, freelance architecture consulting, or full-time software engineering roles.
+      </p>
+<!-- Live Telemetry Stat Bar -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="p-3 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">RESPONSE LATENCY</span>
+<span class="material-symbols-outlined text-sm text-primary" data-icon="speed">speed</span>
+</div>
+<div class="font-label-code text-label-code text-on-surface font-bold">&lt; 2 Hours SLA</div>
+<div class="font-label-badge text-label-badge text-primary mt-1">High Availability Pager Active</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">HANDSHAKE CIPHER</span>
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="lock">lock</span>
+</div>
+<div class="font-label-code text-label-code text-on-surface font-bold">TLS 1.3 / E2EE Encrypted</div>
+<div class="font-label-badge text-label-badge text-secondary mt-1">Zero Metadata Logging</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">BASE HOST &amp; TZ</span>
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="schedule">schedule</span>
+</div>
+<div class="font-label-code text-label-code text-on-surface font-bold">Nairobi (UTC+3) / Remote</div>
+<div class="font-label-badge text-label-badge text-tertiary mt-1" id="live-time-utc3">Current: 08:04:00 EAT</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">CRYPTOGRAPHIC NODE</span>
+<span class="material-symbols-outlined text-sm text-primary" data-icon="verified_user">verified_user</span>
+</div>
+<div class="font-label-code text-label-code text-on-surface font-bold">Verified 4096-bit RSA</div>
+<div class="font-label-badge text-label-badge text-primary mt-1">PGP Key ID: 0x9B4EA102</div>
+</div>
+</div>
+</section>
+<!-- 2. Dual-Column Core Transmission Interface -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
+<!-- LEFT COLUMN: Interactive Dispatch Terminal (7 Columns) -->
+<div class="lg:col-span-7 bg-surface-container-low/90 rounded-2xl border border-outline-variant/40 shadow-2xl backdrop-blur-xl overflow-hidden flex flex-col">
+<!-- Terminal Header with macOS Window Dots & Status -->
+<div class="px-4 py-3 bg-surface-container-lowest/90 border-b border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error-container border border-error"></span>
+<span class="w-3 h-3 rounded-full bg-[#f59e0b] border border-[#f59e0b]/40"></span>
+<span class="w-3 h-3 rounded-full bg-primary border border-primary/40"></span>
+<span class="ml-3 font-label-code text-label-code text-outline-variant font-mono">ttyS0::e2ee_dispatch</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-badge text-label-badge text-primary">SOCKET_READY</span>
+</div>
+</div>
+<!-- Terminal Form Body -->
+<form class="p-6 space-y-5" onsubmit="event.preventDefault(); triggerDispatch();">
+<!-- Identity & Return Address Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1.5 flex items-center justify-between">
+<span>// Transmitter Identity</span>
+<span class="text-xs text-primary font-bold">*REQUIRED</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-base" data-icon="badge">badge</span>
+</span>
+<input class="w-full bg-surface-container-lowest/80 text-on-surface pl-10 pr-3 py-2.5 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all placeholder:text-outline/60" placeholder="e.g. Elena Rostova" required="" type="text">
+</div>
+</div>
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1.5 flex items-center justify-between">
+<span>// Return Socket (Email)</span>
+<span class="text-xs text-primary font-bold">*VERIFIED</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-base" data-icon="alternate_email">alternate_email</span>
+</span>
+<input class="w-full bg-surface-container-lowest/80 text-on-surface pl-10 pr-3 py-2.5 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all placeholder:text-outline/60" placeholder="elena@enterprise.io" required="" type="email">
+</div>
+</div>
+</div>
+<!-- Protocol Directive (Collaboration Type) -->
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1.5 flex items-center justify-between">
+<span>// Protocol Directive (Engagement Scope)</span>
+<span class="text-xs text-outline font-label-code">SOCKET_OPCODE</span>
+</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-base" data-icon="hub">hub</span>
+</span>
+<select class="w-full bg-surface-container-lowest/80 text-on-surface pl-10 pr-10 py-2.5 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary font-label-code text-label-code outline-none appearance-none cursor-pointer">
+<option value="cloud_dist">Cloud &amp; Distributed Systems Architecture</option>
+<option value="full_stack">Full-Stack Software Engineering (Go, Rust, TypeScript)</option>
+<option value="sec_audit">Security Audit, Cryptography &amp; Code Review</option>
+<option value="fulltime_eng">Full-Time Principal / Senior Engineering Role</option>
+<option value="research_oss">Research, Technical Advisory &amp; Open Source</option>
+</select>
+<span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="unfold_more">unfold_more</span>
+</span>
+</div>
+</div>
+<!-- Urgency SLA Selector Pills -->
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-2">
+              // Transmission Urgency SLA
+            </label>
+<div class="grid grid-cols-3 gap-2.5" id="urgency-group">
+<label class="cursor-pointer border border-primary/40 bg-surface-container-high/50 p-2.5 rounded-lg flex flex-col items-center justify-center text-center transition-all hover:border-primary">
+<input checked="" class="hidden peer" name="sla" type="radio" value="standard">
+<span class="font-label-badge text-label-badge text-primary peer-checked:text-primary font-bold">STANDARD</span>
+<span class="font-label-code text-[11px] text-outline mt-0.5">24 - 48h SLA</span>
+</label>
+<label class="cursor-pointer border border-outline-variant/40 bg-surface-container-lowest/60 p-2.5 rounded-lg flex flex-col items-center justify-center text-center transition-all hover:border-primary/50">
+<input class="hidden peer" name="sla" type="radio" value="priority">
+<span class="font-label-badge text-label-badge text-on-surface peer-checked:text-primary font-bold">HIGH PRIORITY</span>
+<span class="font-label-code text-[11px] text-outline mt-0.5">4 - 8h SLA</span>
+</label>
+<label class="cursor-pointer border border-outline-variant/40 bg-surface-container-lowest/60 p-2.5 rounded-lg flex flex-col items-center justify-center text-center transition-all hover:border-secondary/50">
+<input class="hidden peer" name="sla" type="radio" value="critical">
+<span class="font-label-badge text-label-badge text-secondary peer-checked:text-secondary font-bold">CRITICAL PAGER</span>
+<span class="font-label-code text-[11px] text-outline mt-0.5">Direct Intercept</span>
+</label>
+</div>
+</div>
+<!-- Payload Buffer (Textarea) -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="data_object">data_object</span>
+<span>// Transmission Payload Buffer</span>
+</label>
+<div class="flex items-center gap-2">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant">Markdown enabled</span>
+<span class="font-label-code text-xs text-outline" id="char-count">0 / 4096 bytes</span>
+</div>
+</div>
+<textarea class="w-full bg-surface-container-lowest/90 text-on-surface p-3 rounded-lg border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary font-label-code text-label-code outline-none transition-all placeholder:text-outline/40 custom-scroll" id="payload-input" oninput="updateCharCount(this)" placeholder="Describe technical specifications, system bottlenecks, team objectives, or project scope..." required="" rows="6"></textarea>
+</div>
+<!-- PGP Sign Checkbox -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary focus:ring-offset-surface" type="checkbox">
+<span class="font-label-code text-label-code text-on-surface">Sign payload with sender public key</span>
+</label>
+<span class="font-label-badge text-label-badge text-primary/70">SHA-256 CHECK</span>
+</div>
+<!-- Action Buttons -->
+<div class="pt-2 flex flex-col sm:flex-row gap-3">
+<button class="flex-1 bg-primary-container hover:bg-[#0891B2] text-surface-container-lowest font-headline-sm text-headline-sm py-3 px-6 rounded-lg font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(6,182,212,0.35)] transition-all active:scale-95" type="submit">
+<span class="material-symbols-outlined text-xl" data-icon="send">send</span>
+<span>Dispatch Encrypted Transmission [Enter]</span>
+</button>
+<button class="bg-surface-container-highest/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-label-code text-label-code py-3 px-5 rounded-lg border border-outline-variant/40 transition-all active:scale-95" onclick="resetFormCounter()" type="reset">
+              Reset Buffer
+            </button>
+</div>
+</form>
+<!-- Live Socket Telemetry Footer Bar -->
+<div class="mt-auto px-4 py-2.5 bg-surface-container-lowest border-t border-outline-variant/30 flex items-center justify-between text-outline">
+<div class="font-label-code text-xs flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span>Socket status: LISTENING on port 443 | Cipher: CHACHA20-POLY1305</span>
+</div>
+<span class="font-label-code text-xs text-primary hidden sm:inline">TCP/IP SYN_RECV</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Direct Nodes, PGP Dossier & Fast-Track Sync (5 Columns) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Module A: Verified Direct Nodes Card -->
+<div class="p-5 rounded-2xl bg-surface-container-low/80 border border-outline-variant/40 backdrop-blur-xl shadow-lg">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="satellite_alt">satellite_alt</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Verified Direct Nodes</h2>
+</div>
+<span class="font-label-badge text-label-badge text-primary border border-primary/30 px-2 py-0.5 rounded-full">ACTIVE</span>
+</div>
+<!-- Channel List -->
+<div class="space-y-3">
+<!-- Direct Email Socket -->
+<div class="p-3 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center justify-between hover:border-primary/40 transition-colors group">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="mail">mail</span>
+</div>
+<div>
+<div class="font-label-badge text-label-badge text-outline">DIRECT SOCKET</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">dev@kevin-engineer.io</div>
+</div>
+</div>
+<button class="p-2 rounded-lg text-outline hover:text-primary hover:bg-surface-variant transition-all" onclick="copyToClipboard('dev@kevin-engineer.io', this)" title="Copy Address">
+<span class="material-symbols-outlined text-lg" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<!-- GitHub Engine -->
+<a class="p-3 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center justify-between hover:border-primary/40 transition-colors group" href="https://github.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="code_blocks">code_blocks</span>
+</div>
+<div>
+<div class="font-label-badge text-label-badge text-outline">SOURCE CONTROL ENGINE</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">gh::github.com/engineer</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-lg text-outline group-hover:text-primary group-hover:translate-x-0.5 transition-all" data-icon="open_in_new">open_in_new</span>
+</a>
+<!-- LinkedIn Professional Matrix -->
+<a class="p-3 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center justify-between hover:border-primary/40 transition-colors group" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="groups">groups</span>
+</div>
+<div>
+<div class="font-label-badge text-label-badge text-outline">PROFESSIONAL NETWORK</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">in::linkedin.com/in/cloud-lead</div>
+</div>
+</div>
+<span class="font-label-badge text-label-badge text-secondary border border-secondary/30 px-2 py-0.5 rounded">VERIFIED</span>
+</a>
+<!-- Telegram / Matrix E2EE -->
+<div class="p-3 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center justify-between hover:border-secondary/40 transition-colors group">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
+</div>
+<div>
+<div class="font-label-badge text-label-badge text-outline">E2EE INSTANT MESH</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">matrix::@dev:matrix.org</div>
+</div>
+</div>
+<button class="p-2 rounded-lg text-outline hover:text-secondary hover:bg-surface-variant transition-all" onclick="copyToClipboard('@dev:matrix.org', this)">
+<span class="material-symbols-outlined text-lg" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Module B: Cryptographic PGP Verification Dossier -->
+<div class="p-5 rounded-2xl bg-surface-container-low/80 border border-outline-variant/40 backdrop-blur-xl shadow-lg">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30 mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="key">key</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Cryptographic PGP Dossier</h2>
+</div>
+<span class="font-label-badge text-label-badge text-primary bg-primary/10 px-2 py-0.5 rounded">4096R RSA</span>
+</div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-code text-xs text-outline">KEY ID: <strong class="text-on-surface">0x9B4EA102C785F2D1</strong></span>
+<span class="font-label-code text-xs text-outline">EXPIRES: 2026-12-31</span>
+</div>
+<!-- ASCII Fingerprint Box -->
+<div class="p-3 rounded-xl bg-surface-container-lowest border border-outline-variant/30 font-label-code text-[11px] text-primary/90 leading-tight select-all overflow-x-auto custom-scroll">
+<code>FINGERPRINT: 4F2A 9C81 072B E194 8A33 6712 9B4E A102 C785 F2D1</code>
+</div>
+<!-- Dossier Actions -->
+<div class="grid grid-cols-2 gap-2 mt-3">
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface hover:text-primary border border-outline-variant/40 font-label-code text-xs flex items-center justify-center gap-1.5 transition-all active:scale-95" onclick="copyToClipboard('4F2A 9C81 072B E194 8A33 6712 9B4E A102 C785 F2D1', this)">
+<span class="material-symbols-outlined text-sm" data-icon="fingerprint">fingerprint</span>
+<span>Copy Fingerprint</span>
+</button>
+<a class="py-2 px-3 rounded-lg bg-surface-container text-on-surface hover:text-primary border border-outline-variant/40 font-label-code text-xs flex items-center justify-center gap-1.5 transition-all active:scale-95" href="#download-key" onclick="alert('PGP Public Key Block downloaded.'); return false;">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+<span>Download .asc</span>
+</a>
+</div>
+</div>
+<!-- Module C: Fast-Track Calendar Uplink Card -->
+<div class="p-5 rounded-2xl bg-gradient-to-br from-surface-container-low to-surface-container border border-primary/30 backdrop-blur-xl shadow-lg relative overflow-hidden" id="cal-modal">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="event_available">event_available</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Technical Sync Uplink</h2>
+</div>
+<span class="font-label-badge text-label-badge text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">CAL.COM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            Bypass asynchronous latency. Reserve an immediate architectural sparring session or hiring manager introduction directly.
+          </p>
+<div class="grid grid-cols-2 gap-3 mb-4">
+<div class="p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 text-center">
+<div class="font-label-code text-label-code text-primary font-bold">15-MIN</div>
+<div class="font-label-badge text-label-badge text-outline">Introductory Sprint</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 text-center">
+<div class="font-label-code text-label-code text-secondary font-bold">30-MIN</div>
+<div class="font-label-badge text-label-badge text-outline">Deep Architecture Deep-Dive</div>
+</div>
+</div>
+<a class="w-full py-2.5 px-4 rounded-lg bg-surface-variant hover:bg-surface-bright text-primary border border-primary/40 font-headline-sm text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-[0_0_12px_rgba(76,215,246,0.15)]" href="https://cal.com" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-base" data-icon="video_call">video_call</span>
+<span>Open Cal.com Uplink</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 3. Global Timezone Overlap Radar & Synchronous Windows -->
+<section class="mb-16">
+<div class="p-6 rounded-2xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-xl shadow-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-outline-variant/30 gap-4 mb-6">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="public">public</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Global Timezone Overlap Radar</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Deterministic real-time overlap windows for distributed team synchronization across principal hubs.
+            </p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-code text-xs text-on-surface">Sync Window: 13:00 - 20:00 UTC</span>
+</div>
+</div>
+</div>
+<!-- Hubs Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+<!-- Hub 1: Nairobi Base -->
+<div class="p-4 rounded-xl bg-surface-container-lowest/80 border border-primary/40 relative">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-badge text-label-badge text-primary">HOST NODE</span>
+<span class="font-label-code text-xs text-primary font-bold">UTC +3</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">Nairobi (EAT)</div>
+<div class="font-label-code text-sm text-primary font-bold mt-1" id="tz-nairobi">08:04:00</div>
+<div class="font-label-badge text-[10px] text-primary/80 mt-2 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Prime Synchronous Core</span>
+</div>
+</div>
+<!-- Hub 2: London / Berlin -->
+<div class="p-4 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">EMEA REGION</span>
+<span class="font-label-code text-xs text-outline font-bold">UTC +1 / +2</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">London / Berlin</div>
+<div class="font-label-code text-sm text-on-surface font-bold mt-1" id="tz-london">07:04:00</div>
+<div class="font-label-badge text-[10px] text-tertiary mt-2 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>6.5h Full Working Overlap</span>
+</div>
+</div>
+<!-- Hub 3: New York (EST) -->
+<div class="p-4 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">US EAST</span>
+<span class="font-label-code text-xs text-outline font-bold">UTC -5</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">New York (EST)</div>
+<div class="font-label-code text-sm text-on-surface font-bold mt-1" id="tz-ny">01:04:00</div>
+<div class="font-label-badge text-[10px] text-secondary mt-2 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>4.0h Afternoon Overlap</span>
+</div>
+</div>
+<!-- Hub 4: San Francisco (PST) -->
+<div class="p-4 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">US WEST</span>
+<span class="font-label-code text-xs text-outline font-bold">UTC -8</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface">San Francisco (PST)</div>
+<div class="font-label-code text-sm text-on-surface font-bold mt-1" id="tz-sf">22:04:00</div>
+<div class="font-label-badge text-[10px] text-outline mt-2 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Async Handover / 2h Overlap</span>
+</div>
+</div>
+</div>
+<!-- Overlap Bar Visualization -->
+<div class="bg-surface-container-lowest p-4 rounded-xl border border-outline-variant/30">
+<div class="flex items-center justify-between text-xs font-label-code text-outline mb-2">
+<span>00:00 UTC</span>
+<span>06:00 UTC</span>
+<span class="text-primary font-bold">12:00 UTC (PEAK SYNC)</span>
+<span>18:00 UTC</span>
+<span>24:00 UTC</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex relative">
+<div class="w-[25%] bg-outline-variant/20"></div>
+<div class="w-[20%] bg-tertiary/40"></div>
+<div class="w-[30%] bg-gradient-to-r from-primary via-tertiary to-secondary shadow-[0_0_12px_rgba(76,215,246,0.6)]"></div>
+<div class="w-[25%] bg-outline-variant/20"></div>
+</div>
+<div class="flex items-center justify-between mt-2 font-label-badge text-label-badge text-outline">
+<span>Autonomous Async Processing</span>
+<span class="text-primary">100% Synchronous Standup &amp; Architecture Windows</span>
+<span>Async Batch Dispatch</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- SHARED COMPONENT: BottomNavBar (Responsive Pivot: Mobile Only `md:hidden`) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-low/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-lg px-2 py-2 max-w-7xl mx-auto flex justify-around items-center">
+<!-- Destination 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95" href="#overview">
+<span class="material-symbols-outlined text-xl" data-icon="code">code</span>
+<span class="font-label-badge text-label-badge">Overview</span>
+</a>
+<!-- Destination 2: Certifications -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95" href="#certifications">
+<span class="material-symbols-outlined text-xl" data-icon="verified">verified</span>
+<span class="font-label-badge text-label-badge">Certifications</span>
+</a>
+<!-- Destination 3: Projects -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95" href="#projects">
+<span class="material-symbols-outlined text-xl" data-icon="folder_special">folder_special</span>
+<span class="font-label-badge text-label-badge">Projects</span>
+</a>
+<!-- Destination 4: Contact (Active Navigation - Strict Intent Match) -->
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:text-primary transition-colors duration-150 active:scale-95" href="#contact">
+<span class="material-symbols-outlined text-xl" data-icon="terminal">terminal</span>
+<span class="font-label-badge text-label-badge">Contact</span>
+</a>
+</nav>
+<!-- SHARED COMPONENT: Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-4 py-8 mb-16 md:mb-0 text-center flex flex-col items-center justify-center gap-3">
+<!-- Monospace Telemetry / Copyright Text -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        © 2024 Built with precision. All telemetry normal.
+      </p>
+<!-- Exact JSON Links -->
+<div class="flex flex-wrap items-center justify-center gap-6">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#source-code">Source Code</a>
+<span class="text-outline-variant text-xs">•</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#architecture-docs">Architecture Docs</a>
+<span class="text-outline-variant text-xs">•</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#public-pgp-key">Public PGP Key</a>
+</div>
+<div class="font-label-code text-label-code text-primary tracking-wider mt-1">
+        dev::portfolio // node_id: 8f02ec4
+      </div>
+</div>
+</footer>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none p-4 rounded-xl bg-surface-container-high border border-primary/50 text-on-surface shadow-2xl flex items-center gap-3" id="toast">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-label-code text-xs" id="toast-msg">Copied to cryptographic clipboard</span>
+</div>
+<!-- Micro-interactions JavaScript -->
+<script>
+    // Live Clock Updates for Radar
+    function updateClocks() {
+      const now = new Date();
+      const formatTime = (tz) => {
+        try {
+          return new Intl.DateTimeFormat('en-GB', {
+            timeZone: tz,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+          }).format(now);
+        } catch(e) {
+          return "12:00:00";
+        }
+      };
+
+      const eatTime = formatTime('Africa/Nairobi');
+      const cetTime = formatTime('Europe/Berlin');
+      const estTime = formatTime('America/New_York');
+      const pstTime = formatTime('America/Los_Angeles');
+
+      const elEat = document.getElementById('live-time-utc3');
+      if (elEat) elEat.innerText = `Current: ${eatTime} EAT`;
+      
+      const elNairobi = document.getElementById('tz-nairobi');
+      if (elNairobi) elNairobi.innerText = eatTime;
+
+      const elLondon = document.getElementById('tz-london');
+      if (elLondon) elLondon.innerText = cetTime;
+
+      const elNy = document.getElementById('tz-ny');
+      if (elNy) elNy.innerText = estTime;
+
+      const elSf = document.getElementById('tz-sf');
+      if (elSf) elSf.innerText = pstTime;
+    }
+    setInterval(updateClocks, 1000);
+    updateClocks();
+
+    // Textarea payload counter
+    function updateCharCount(textarea) {
+      const bytes = new Blob([textarea.value]).size;
+      const counter = document.getElementById('char-count');
+      counter.innerText = `${bytes} / 4096 bytes`;
+      if (bytes > 4000) {
+        counter.classList.add('text-error');
+        counter.classList.remove('text-outline');
+      } else {
+        counter.classList.remove('text-error');
+        counter.classList.add('text-outline');
+      }
+    }
+
+    function resetFormCounter() {
+      setTimeout(() => {
+        const counter = document.getElementById('char-count');
+        if (counter) counter.innerText = '0 / 4096 bytes';
+      }, 50);
+    }
+
+    // Clipboard Helper & Toast
+    function copyToClipboard(text, btnElement) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(`Copied [${text}] to clipboard`);
+      }).catch(() => {
+        showToast(`Selected: ${text}`);
+      });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      if (!toast || !toastMsg) return;
+      toastMsg.innerText = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 2500);
+    }
+
+    // Form dispatch trigger
+    function triggerDispatch() {
+      showToast('Transmission dispatched into secure socket buffer.');
+      const textarea = document.getElementById('payload-input');
+      if (textarea) textarea.value = '';
+      resetFormCounter();
+    }
+  </script>
+</body></html>

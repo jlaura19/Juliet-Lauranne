@@ -1,0 +1,578 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Direct Engineering Sync &amp; Calendar Uplink</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#001e2c",
+            "secondary-container": "#571bc1",
+            "outline-variant": "#3d494c",
+            "on-tertiary-fixed-variant": "#004c69",
+            "on-primary-fixed-variant": "#004e5c",
+            "surface-dim": "#0f131c",
+            "surface-variant": "#31353e",
+            "on-secondary-fixed-variant": "#5516be",
+            "inverse-primary": "#00687a",
+            "primary-fixed-dim": "#4cd7f6",
+            "surface-container-highest": "#31353e",
+            "on-surface": "#dfe2ee",
+            "on-background": "#dfe2ee",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "on-primary-fixed": "#001f26",
+            "on-secondary-fixed": "#23005c",
+            "surface-container-low": "#181c24",
+            "on-primary": "#003640",
+            "on-tertiary-container": "#00415a",
+            "on-secondary-container": "#c4abff",
+            "tertiary-container": "#23b2ec",
+            "surface-tint": "#4cd7f6",
+            "on-error": "#690005",
+            "on-primary-container": "#00424f",
+            "primary-container": "#06b6d4",
+            "on-tertiary": "#00354a",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#3c0091",
+            "error": "#ffb4ab",
+            "surface-bright": "#353942",
+            "surface-container-high": "#262a33",
+            "secondary": "#d0bcff",
+            "surface-container": "#1c2028",
+            "surface": "#0f131c",
+            "background": "#0f131c",
+            "outline": "#869397",
+            "primary": "#4cd7f6",
+            "inverse-on-surface": "#2c3039",
+            "primary-fixed": "#acedff",
+            "tertiary": "#7bd0ff",
+            "surface-container-lowest": "#0a0e16",
+            "on-error-container": "#ffdad6",
+            "error-container": "#93000a",
+            "on-surface-variant": "#bcc9cd",
+            "inverse-surface": "#dfe2ee",
+            "secondary-fixed-dim": "#d0bcff",
+            "tertiary-fixed": "#c4e7ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "margin": "3rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans"],
+            "label-badge": ["JetBrains Mono"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-code": ["JetBrains Mono"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom scanline and ambient glow layers */
+    .cyber-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(76, 215, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(76, 215, 246, 0.04) 1px, transparent 1px);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 19, 28, 0.6);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #3d494c;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #4cd7f6;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary selection:text-surface font-body-md overflow-x-hidden min-h-screen relative">
+<!-- TOP APP BAR -->
+<header class="fixed top-0 left-0 w-full z-40 bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+<span class="font-headline-sm text-headline-sm font-bold tracking-wider text-primary">dev::portfolio</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<span class="font-label-code text-label-code text-primary font-bold">Transmission Hub</span>
+<span class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors duration-150 cursor-pointer">Telemetry</span>
+<span class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors duration-150 cursor-pointer">Protocols</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-badge text-label-badge text-primary">Status: Available</span>
+</div>
+</div>
+</header>
+<!-- BACKGROUND TRANSMISSION HUB CONTENT (BLURRED IN STATE) -->
+<main class="pt-24 pb-20 px-4 max-w-7xl mx-auto cyber-grid min-h-screen opacity-40 blur-sm pointer-events-none select-none transition-all duration-300">
+<!-- Hub Mock Context -->
+<div class="flex flex-col gap-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-8 rounded-xl bg-surface-container/60">
+<div>
+<span class="font-label-code text-label-code text-primary tracking-wider">// SECURE NODE 0x94F2</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold mt-1">Transmission &amp; Engineering Collaboration Hub</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">
+            Real-time peer synchronization channel for distributed systems review, pair architecture planning, and high-bandwidth telemetry handshake.
+          </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 rounded-lg bg-primary-container text-on-primary font-display font-bold text-sm tracking-wide">
+            Schedule Sync
+          </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 rounded-xl bg-surface-container/40">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-code text-label-code text-secondary">METRIC::LATENCY</span>
+<span class="material-symbols-outlined text-outline">speed</span>
+</div>
+<p class="font-display text-3xl font-extrabold text-on-surface">18ms</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct fiber optic link via Cloudflare Edge</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container/40">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-code text-label-code text-primary">ACTIVE::DAEMONS</span>
+<span class="material-symbols-outlined text-outline">memory</span>
+</div>
+<p class="font-display text-3xl font-extrabold text-on-surface">14 Nodes</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Distributed consensus engine running</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container/40">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-code text-label-code text-tertiary">UPTIME</span>
+<span class="material-symbols-outlined text-outline">verified</span>
+</div>
+<p class="font-display text-3xl font-extrabold text-on-surface">99.98%</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Fault-tolerant distributed cluster</p>
+</div>
+</div>
+</div>
+</main>
+<!-- MODAL BACKDROP OVERLAY & CYBERNETIC DIALOG CONTAINER -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-surface-container-lowest/80 backdrop-blur-xl overflow-y-auto" id="sync-modal-backdrop">
+<!-- Ambient Flare Glows -->
+<div class="absolute w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none -top-20 -left-20"></div>
+<div class="absolute w-[400px] h-[400px] bg-secondary-container/20 rounded-full blur-[100px] pointer-events-none -bottom-10 -right-10"></div>
+<!-- MAIN CYBERNETIC MODAL WINDOW -->
+<div class="relative w-full max-w-4xl my-auto rounded-xl bg-surface-container-low/95 backdrop-blur-2xl shadow-2xl overflow-hidden flex flex-col max-h-[942px] transition-all">
+<!-- Top Neon Status Bar Accent Line -->
+<div class="h-1 w-full bg-gradient-to-r from-primary via-tertiary to-secondary"></div>
+<!-- MODAL HEADER -->
+<div class="px-5 py-4 md:px-7 md:py-5 flex items-center justify-between bg-surface-container/80 backdrop-blur-md">
+<!-- Terminal Window Dots & Breadcrumbs -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-[#EF4444]/90 inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#F59E0B]/90 inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#10B981]/90 inline-block shadow-sm"></span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/40 hidden sm:block"></div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">
+                Schedule Sync // Technical Session
+              </h2>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-label-badge text-label-badge text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                [PROTOCOL: CAL_SYNC_V2]
+              </span>
+<span class="font-label-badge text-label-badge text-tertiary-fixed-dim flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                LIVE: AVAILABLE
+              </span>
+</div>
+</div>
+</div>
+<!-- ESC / Close Control Button -->
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-primary hover:bg-surface-container-highest transition-colors duration-150 font-label-code text-label-code" id="close-modal-btn">
+<span class="hidden sm:inline">ESC</span>
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+<!-- MODAL CONTENT SCROLLABLE BODY -->
+<div class="p-5 md:p-7 overflow-y-auto custom-scrollbar space-y-6 flex-1">
+<!-- SECTION 1: SESSION TYPE SELECTOR -->
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant uppercase tracking-wider mb-2.5">
+            01 // Select Engineering Session Architecture
+          </label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3.5" id="session-type-grid">
+<!-- Type 1 (Active by default) -->
+<div class="session-card group relative p-4 rounded-xl cursor-pointer transition-all duration-200 bg-surface-container-high/80" data-duration="15m" data-selected="true">
+<div class="flex items-start justify-between">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-primary/20 text-primary font-bold">15 MIN</span>
+<span class="material-symbols-outlined text-primary text-xl">bolt</span>
+</div>
+<h3 class="font-headline-sm text-sm font-bold text-on-surface mt-2.5">Quick Architecture Triage</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+                Fast code review, PR vetting, or quick role introduction &amp; sync.
+              </p>
+<div class="mt-3 flex items-center gap-1.5 font-label-badge text-label-badge text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                Direct Calendar Ping
+              </div>
+</div>
+<!-- Type 2 -->
+<div class="session-card group relative p-4 rounded-xl cursor-pointer transition-all duration-200 bg-surface-container/60 hover:bg-surface-container-high/60" data-duration="30m">
+<div class="flex items-start justify-between">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-bold">30 MIN</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary transition-colors text-xl">account_tree</span>
+</div>
+<h3 class="font-headline-sm text-sm font-bold text-on-surface mt-2.5">Deep Dive &amp; System Design</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+                Distributed systems, event mesh, microservices, and stack teardown.
+              </p>
+<div class="mt-3 flex items-center gap-1.5 font-label-badge text-label-badge text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                In-depth Handshake
+              </div>
+</div>
+<!-- Type 3 -->
+<div class="session-card group relative p-4 rounded-xl cursor-pointer transition-all duration-200 bg-surface-container/60 hover:bg-surface-container-high/60" data-duration="45m">
+<div class="flex items-start justify-between">
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-bold">45 MIN</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors text-xl">terminal</span>
+</div>
+<h3 class="font-headline-sm text-sm font-bold text-on-surface mt-2.5">Collaboration &amp; Mentorship</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+                Hackathon pair debugging, career guidance, and open-source contribution.
+              </p>
+<div class="mt-3 flex items-center gap-1.5 font-label-badge text-label-badge text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                Shared Workspace Link
+              </div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: DATE & TIME SLOT TELEMETRY PICKER -->
+<div class="p-4 md:p-5 rounded-xl bg-surface-container/50 space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<label class="font-label-code text-label-code text-on-surface-variant uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">calendar_month</span>
+              02 // Available Window &amp; Time Slot Uplink
+            </label>
+<!-- Timezone Switcher Pill -->
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1 rounded-full text-xs font-label-badge">
+<span class="material-symbols-outlined text-xs text-primary">public</span>
+<span class="text-on-surface-variant">Timezone:</span>
+<select class="bg-transparent text-primary font-bold focus:outline-none cursor-pointer border-none p-0 text-xs" id="tz-selector">
+<option class="bg-surface-container-low text-on-surface" value="UTC">UTC (Universal)</option>
+<option class="bg-surface-container-low text-on-surface" selected="" value="EAT">EAT (UTC+3 - Local)</option>
+<option class="bg-surface-container-low text-on-surface" value="EST">EST (UTC-5 - US)</option>
+<option class="bg-surface-container-low text-on-surface" value="PST">PST (UTC-8 - US)</option>
+</select>
+</div>
+</div>
+<!-- Date Strip Selector -->
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2" id="date-strip">
+<button class="date-chip p-2.5 rounded-lg bg-surface-container-high text-left transition-all duration-150" type="button">
+<span class="block font-label-badge text-label-badge text-primary uppercase">Tomorrow</span>
+<span class="block font-display text-sm font-bold text-on-surface">Oct 24</span>
+<span class="block font-label-badge text-[10px] text-tertiary mt-0.5">4 Slots Open</span>
+</button>
+<button class="date-chip p-2.5 rounded-lg bg-surface-container-low text-left hover:bg-surface-container-high transition-all duration-150" type="button">
+<span class="block font-label-badge text-label-badge text-outline uppercase">Friday</span>
+<span class="block font-display text-sm font-bold text-on-surface">Oct 25</span>
+<span class="block font-label-badge text-[10px] text-on-surface-variant mt-0.5">6 Slots Open</span>
+</button>
+<button class="date-chip p-2.5 rounded-lg bg-surface-container-low text-left hover:bg-surface-container-high transition-all duration-150" type="button">
+<span class="block font-label-badge text-label-badge text-outline uppercase">Monday</span>
+<span class="block font-display text-sm font-bold text-on-surface">Oct 28</span>
+<span class="block font-label-badge text-[10px] text-on-surface-variant mt-0.5">5 Slots Open</span>
+</button>
+<button class="date-chip p-2.5 rounded-lg bg-surface-container-low text-left hover:bg-surface-container-high transition-all duration-150" type="button">
+<span class="block font-label-badge text-label-badge text-outline uppercase">Tuesday</span>
+<span class="block font-display text-sm font-bold text-on-surface">Oct 29</span>
+<span class="block font-label-badge text-[10px] text-on-surface-variant mt-0.5">3 Slots Open</span>
+</button>
+<button class="date-chip p-2.5 rounded-lg bg-surface-container-low text-left hover:bg-surface-container-high transition-all duration-150" type="button">
+<span class="block font-label-badge text-label-badge text-outline uppercase">Wednesday</span>
+<span class="block font-display text-sm font-bold text-on-surface">Oct 30</span>
+<span class="block font-label-badge text-[10px] text-on-surface-variant mt-0.5">8 Slots Open</span>
+</button>
+<button class="date-chip p-2.5 rounded-lg bg-surface-container-low text-left opacity-50 cursor-not-allowed" type="button">
+<span class="block font-label-badge text-label-badge text-outline uppercase">Thursday</span>
+<span class="block font-display text-sm font-bold text-on-surface">Oct 31</span>
+<span class="block font-label-badge text-[10px] text-error mt-0.5">Fully Booked</span>
+</button>
+</div>
+<!-- Time Slot Grid -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-badge text-label-badge text-on-surface-variant">Selected Day Slot Telemetry:</span>
+<span class="font-label-badge text-label-badge text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">videocam</span>
+                Google Meet handshake auto-configured
+              </span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-2.5" id="slot-grid">
+<button class="slot-pill px-3 py-2 rounded-lg bg-primary-container text-on-primary font-label-code text-label-code font-bold flex items-center justify-center gap-1.5 shadow-sm transition-transform active:scale-95" type="button">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                14:00 EAT
+              </button>
+<button class="slot-pill px-3 py-2 rounded-lg bg-surface-container-high text-on-surface hover:text-primary transition-all font-label-code text-label-code flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-sm text-outline">schedule</span>
+                15:30 EAT
+              </button>
+<button class="slot-pill px-3 py-2 rounded-lg bg-surface-container-high text-on-surface hover:text-primary transition-all font-label-code text-label-code flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-sm text-outline">schedule</span>
+                17:00 EAT
+              </button>
+<button class="slot-pill px-3 py-2 rounded-lg bg-surface-container-high text-on-surface hover:text-primary transition-all font-label-code text-label-code flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-sm text-outline">schedule</span>
+                19:30 EAT
+              </button>
+</div>
+</div>
+</div>
+<!-- SECTION 3: ATTENDEE TRANSMISSION FORM -->
+<div class="space-y-4">
+<label class="block font-label-code text-label-code text-on-surface-variant uppercase tracking-wider">
+            03 // Attendee Payload &amp; Dispatch Credentials
+          </label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Name Input -->
+<div class="space-y-1.5">
+<label class="font-label-badge text-label-badge text-on-surface-variant flex items-center justify-between" for="attendee-name">
+<span>IDENTITY / FULL NAME</span>
+<span class="text-primary">*REQUIRED</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-base">person</span>
+</div>
+<input class="w-full pl-9 pr-3 py-2.5 bg-surface-container-lowest text-on-surface rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors" id="attendee-name" placeholder="e.g. Alex Vance" required="" type="text" value="Sarah Connor">
+</div>
+</div>
+<!-- Email Input -->
+<div class="space-y-1.5">
+<label class="font-label-badge text-label-badge text-on-surface-variant flex items-center justify-between" for="attendee-email">
+<span>TRANSMISSION EMAIL</span>
+<span class="text-primary">*INVITE RECIPIENT</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-base">alternate_email</span>
+</div>
+<input class="w-full pl-9 pr-3 py-2.5 bg-surface-container-lowest text-on-surface rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors" id="attendee-email" placeholder="s.connor@cyberdyne.dev" required="" type="email" value="s.connor@cyberdyne.dev">
+</div>
+</div>
+</div>
+<!-- Agenda Dropdown -->
+<div class="space-y-1.5">
+<label class="font-label-badge text-label-badge text-on-surface-variant" for="session-topic">
+              COLLABORATION TOPIC / REASON FOR SYNC
+            </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-base">hub</span>
+</div>
+<select class="w-full pl-9 pr-10 py-2.5 bg-surface-container-lowest text-on-surface rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors appearance-none cursor-pointer" id="session-topic">
+<option selected="" value="internship">Software Engineering Internship &amp; Talent Onboarding</option>
+<option value="audit">Code Audit &amp; High-Performance Architecture Review</option>
+<option value="opensource">Open Source Architecture &amp; Consensus Engine Discussion</option>
+<option value="mentorship">Pair Debugging, Technical Career Mentorship &amp; Hackathons</option>
+<option value="other">Other Protocol Transmission (Provide notes below)</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-base">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Notes Textarea -->
+<div class="space-y-1.5">
+<label class="font-label-badge text-label-badge text-on-surface-variant flex items-center justify-between" for="session-payload">
+<span>CONTEXT PAYLOAD / REPOSITORY LINKS / NOTES</span>
+<span class="text-outline">OPTIONAL</span>
+</label>
+<textarea class="w-full p-3 bg-surface-container-lowest text-on-surface rounded-lg font-label-code text-xs focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-colors custom-scrollbar" id="session-payload" placeholder="Paste GitHub PR, repository links, or preliminary architecture diagrams you'd like to vet during our sync..." rows="3">Interested in discussing system scaling for the event ingestion microservices we operate on AWS ECS, and vetting candidate engineering alignment.</textarea>
+</div>
+</div>
+</div>
+<!-- MODAL ACTION FOOTER -->
+<div class="px-5 py-4 md:px-7 md:py-5 bg-surface-container/90 backdrop-blur-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<!-- Encryption Telemetry Footnote -->
+<div class="flex items-center gap-2 font-label-badge text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-primary">lock_clock</span>
+<span>Cal.com &amp; Google Calendar encrypted sync // Timezone auto-detected: <strong class="text-primary font-bold">UTC+3 (Nairobi)</strong></span>
+</div>
+<!-- Action CTA Buttons -->
+<div class="flex items-center gap-3 self-end sm:self-auto">
+<button class="px-4 py-2 rounded-lg bg-surface-container-high text-on-surface hover:text-primary hover:bg-surface-variant transition-colors duration-150 font-label-code text-label-code" id="cancel-modal-btn" type="button">
+            Cancel / Close
+          </button>
+<button class="px-5 py-2.5 rounded-lg bg-primary-container text-on-primary font-display font-bold text-sm tracking-wide flex items-center gap-2 hover:bg-tertiary-container transition-all duration-150 shadow-lg active:scale-95" id="dispatch-sync-btn" type="button">
+<span class="material-symbols-outlined text-base">send</span>
+            Confirm &amp; Dispatch Calendar Invite
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- FLOATING BOTTOM NAV BAR (Shared Component Anchor) -->
+<nav class="fixed bottom-0 left-0 w-full z-30 bg-surface-container-low/90 backdrop-blur-lg md:hidden">
+<div class="flex justify-around items-center px-2 py-2 max-w-7xl mx-auto">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95" href="#overview">
+<span class="material-symbols-outlined text-xl">code</span>
+<span class="font-label-badge text-label-badge">Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95" href="#certifications">
+<span class="material-symbols-outlined text-xl">verified</span>
+<span class="font-label-badge text-label-badge">Certifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95" href="#projects">
+<span class="material-symbols-outlined text-xl">folder_special</span>
+<span class="font-label-badge text-label-badge">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-95" href="#contact">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-label-badge text-label-badge">Contact</span>
+</a>
+</div>
+</nav>
+<!-- FOOTER (Shared Component Anchor) -->
+<footer class="bg-surface-container-lowest text-center py-8 px-4 mb-16 md:mb-0 max-w-7xl mx-auto flex flex-col items-center justify-center gap-3">
+<div class="flex items-center gap-6">
+<a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors duration-150" href="#source">Source Code</a>
+<span class="text-outline-variant/40">•</span>
+<a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors duration-150" href="#docs">Architecture Docs</a>
+<span class="text-outline-variant/40">•</span>
+<a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors duration-150" href="#pgp">Public PGP Key</a>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+      © 2024 Built with precision. All telemetry normal.
+    </p>
+</footer>
+<!-- LIGHTWEIGHT INTERACTIVITY SCRIPT -->
+<script>
+    // Session cards selection
+    const sessionCards = document.querySelectorAll('.session-card');
+    sessionCards.forEach(card => {
+      card.addEventListener('click', () => {
+        sessionCards.forEach(c => {
+          c.classList.remove('bg-surface-container-high/80');
+          c.classList.add('bg-surface-container/60');
+        });
+        card.classList.remove('bg-surface-container/60');
+        card.classList.add('bg-surface-container-high/80');
+      });
+    });
+
+    // Date chips selection
+    const dateChips = document.querySelectorAll('.date-chip:not(.cursor-not-allowed)');
+    dateChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        dateChips.forEach(c => {
+          c.classList.remove('bg-surface-container-high');
+          c.classList.add('bg-surface-container-low');
+          const title = c.querySelector('span:first-child');
+          if (title) title.classList.replace('text-primary', 'text-outline');
+        });
+        chip.classList.remove('bg-surface-container-low');
+        chip.classList.add('bg-surface-container-high');
+        const title = chip.querySelector('span:first-child');
+        if (title) title.classList.replace('text-outline', 'text-primary');
+      });
+    });
+
+    // Time slot selection
+    const slotPills = document.querySelectorAll('.slot-pill');
+    slotPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        slotPills.forEach(p => {
+          p.className = 'slot-pill px-3 py-2 rounded-lg bg-surface-container-high text-on-surface hover:text-primary transition-all font-label-code text-label-code flex items-center justify-center gap-1.5';
+          const icon = p.querySelector('.material-symbols-outlined');
+          if (icon) icon.className = 'material-symbols-outlined text-sm text-outline';
+        });
+        pill.className = 'slot-pill px-3 py-2 rounded-lg bg-primary-container text-on-primary font-label-code text-label-code font-bold flex items-center justify-center gap-1.5 shadow-sm transition-transform active:scale-95';
+        const icon = pill.querySelector('.material-symbols-outlined');
+        if (icon) icon.className = 'material-symbols-outlined text-sm text-on-primary';
+      });
+    });
+
+    // Dispatch button feedback
+    const dispatchBtn = document.getElementById('dispatch-sync-btn');
+    dispatchBtn.addEventListener('click', () => {
+      const origText = dispatchBtn.innerHTML;
+      dispatchBtn.innerHTML = `
+        <span class="material-symbols-outlined text-base animate-spin">sync</span>
+        Transmitting Uplink...
+      `;
+      dispatchBtn.disabled = true;
+      setTimeout(() => {
+        dispatchBtn.innerHTML = `
+          <span class="material-symbols-outlined text-base">check_circle</span>
+          Invite Dispatched! Check Inbox.
+        `;
+        dispatchBtn.classList.replace('bg-primary-container', 'bg-tertiary');
+        dispatchBtn.classList.replace('text-on-primary', 'text-on-tertiary');
+      }, 1200);
+    });
+
+    // Close modal simulation
+    const closeModal = () => {
+      const backdrop = document.getElementById('sync-modal-backdrop');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      backdrop.style.transition = 'opacity 0.25s ease';
+      document.querySelector('main').classList.remove('opacity-40', 'blur-sm', 'pointer-events-none', 'select-none');
+    };
+
+    document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+    document.getElementById('cancel-modal-btn').addEventListener('click', closeModal);
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body></html>

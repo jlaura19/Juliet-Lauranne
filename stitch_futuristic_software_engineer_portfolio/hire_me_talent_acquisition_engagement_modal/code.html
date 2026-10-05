@@ -1,0 +1,515 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Initiate Hiring Protocol // Candidate Dossier &amp; Engagement</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration strictly mapped to design tokens -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#3d494c",
+            "inverse-surface": "#dfe2ee",
+            "on-surface-variant": "#bcc9cd",
+            "surface-tint": "#4cd7f6",
+            "primary-container": "#06b6d4",
+            "surface-container-highest": "#31353e",
+            "surface-variant": "#31353e",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-container-low": "#181c24",
+            "inverse-primary": "#00687a",
+            "surface-dim": "#0f131c",
+            "secondary-fixed": "#e9ddff",
+            "on-background": "#dfe2ee",
+            "surface": "#0f131c",
+            "primary-fixed-dim": "#4cd7f6",
+            "on-primary-container": "#00424f",
+            "inverse-on-surface": "#2c3039",
+            "secondary-container": "#571bc1",
+            "error-container": "#93000a",
+            "tertiary-fixed": "#c4e7ff",
+            "on-tertiary-fixed-variant": "#004c69",
+            "secondary": "#d0bcff",
+            "on-surface": "#dfe2ee",
+            "error": "#ffb4ab",
+            "on-tertiary-container": "#00415a",
+            "on-tertiary-fixed": "#001e2c",
+            "on-secondary": "#3c0091",
+            "surface-container-high": "#262a33",
+            "tertiary-container": "#23b2ec",
+            "on-secondary-container": "#c4abff",
+            "tertiary": "#7bd0ff",
+            "surface-container-lowest": "#0a0e16",
+            "on-tertiary": "#00354a",
+            "on-primary-fixed-variant": "#004e5c",
+            "surface-container": "#1c2028",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-bright": "#353942",
+            "on-error-container": "#ffdad6",
+            "background": "#0f131c",
+            "on-primary-fixed": "#001f26",
+            "outline": "#869397",
+            "on-secondary-fixed": "#23005c",
+            "on-primary": "#003640",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "primary": "#4cd7f6",
+            "primary-fixed": "#acedff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "1rem",
+            "space-xl": "2.5rem",
+            "space-md": "1rem",
+            "margin": "3rem",
+            "margin-mobile": "1.25rem"
+          },
+          "fontFamily": {
+            "display-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-badge": ["JetBrains Mono"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-code": ["JetBrains Mono"],
+            "display": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .glass-modal {
+      background: rgba(15, 19, 28, 0.94);
+      backdrop-filter: blur(28px);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px -5px rgba(6, 182, 212, 0.2), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 19, 28, 0.5);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(61, 73, 76, 0.8);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #4cd7f6;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container" data-mode="connect">
+<!-- ========================================================================= -->
+<!-- BACKGROUND LAYER: Faint portfolio layout blurred behind modal backdrop   -->
+<!-- ========================================================================= -->
+<div aria-hidden="true" class="fixed inset-0 pointer-events-none filter blur-sm opacity-25 select-none">
+<div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-12 gap-6">
+<div class="col-span-12 h-16 bg-surface-container-high rounded-lg mb-8 flex items-center justify-between px-6 border border-outline-variant/30">
+<span class="font-label-code text-primary">dev::portfolio</span>
+<span class="font-label-code text-on-surface-variant">status::active</span>
+</div>
+<div class="col-span-8 space-y-6">
+<div class="h-64 bg-surface-container-high rounded-xl border border-outline-variant/20 p-6">
+<div class="w-2/3 h-10 bg-surface-variant rounded mb-4"></div>
+<div class="w-full h-4 bg-surface-variant/60 rounded mb-2"></div>
+<div class="w-4/5 h-4 bg-surface-variant/60 rounded"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-44 bg-surface-container rounded-lg border border-outline-variant/20"></div>
+<div class="h-44 bg-surface-container rounded-lg border border-outline-variant/20"></div>
+</div>
+</div>
+<div class="col-span-4 space-y-4">
+<div class="h-80 bg-surface-container-low rounded-xl border border-outline-variant/30 p-5">
+<div class="w-12 h-12 rounded-full bg-primary/20 mb-4"></div>
+<div class="w-3/4 h-6 bg-surface-variant rounded mb-2"></div>
+<div class="w-1/2 h-4 bg-surface-variant rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Ambient Radial Glow Effects -->
+<div class="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-primary/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="fixed bottom-10 right-10 w-[450px] h-[450px] bg-secondary-container/20 rounded-full blur-[150px] pointer-events-none"></div>
+<!-- ========================================================================= -->
+<!-- MODAL BACKDROP CONTAINER (Centered Dialog Architecture)                  -->
+<!-- ========================================================================= -->
+<div class="relative z-50 min-h-screen w-full flex items-center justify-center p-3 sm:p-5 md:p-8 bg-surface/80 backdrop-blur-xl">
+<!-- Modal Box Canvas -->
+<div class="glass-modal w-full max-w-5xl rounded-xl border border-outline-variant/40 flex flex-col my-auto transition-all duration-300">
+<!-- ========================================== -->
+<!-- 1. MODAL TOPBAR & TELEMETRY HEADER        -->
+<!-- ========================================== -->
+<div class="flex flex-wrap items-center justify-between px-5 py-3.5 border-b border-outline-variant/30 bg-surface-container-lowest/80 rounded-t-xl gap-2">
+<!-- Window Controls & Protocol Moniker -->
+<div class="flex items-center space-x-3">
+<div aria-label="Window Controls" class="flex items-center space-x-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EF4444] opacity-90 inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B] opacity-90 inline-block"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#10B981] opacity-90 inline-block"></span>
+</div>
+<div class="h-4 w-px bg-outline-variant/40 mx-1"></div>
+<div class="flex items-center space-x-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[15px]">terminal</span>
+<span class="font-label-code text-label-code tracking-wider text-primary">protocol::talent_acquisition_v3.2</span>
+</div>
+</div>
+<!-- Right Side: Close Button & Shortcut -->
+<div class="flex items-center space-x-2">
+<span class="hidden sm:inline-block font-label-badge text-label-badge text-on-surface-variant px-2 py-0.5 rounded border border-outline-variant/40 bg-surface-container">ESC</span>
+<button aria-label="Close dialog" class="w-7 h-7 flex items-center justify-center rounded-lg bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary/40 border border-outline-variant/30 transition-all duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Dossier Hero Header Content -->
+<div class="px-6 sm:px-8 pt-6 pb-4 border-b border-outline-variant/20 bg-gradient-to-b from-surface-container-low/40 to-transparent">
+<div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-badge text-label-badge text-primary tracking-wide">
+              Available for: Internships, Co-op &amp; Junior SWE Roles (Summer/Fall 2025)
+            </span>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">lock</span>
+            Encrypted Recruiter Uplink
+          </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg sm:text-headline-lg text-on-surface font-bold tracking-tight">
+          Engage&nbsp; Juliet// <span class="text-primary font-extrabold">Software Systems &amp; Distributed Engineer</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1.5 max-w-3xl">
+          Select engagement scope, evaluate stack compatibility, and schedule an introductory technical sync or dispatch direct contract details.
+        </p>
+</div>
+<!-- ========================================== -->
+<!-- MODAL SCROLLABLE BODY                      -->
+<!-- ========================================== -->
+<div class="px-6 sm:px-8 py-6 space-y-7 max-h-[696px] overflow-y-auto custom-scrollbar">
+<!-- 2. ENGAGEMENT MODEL SELECTOR (Segmented Cards) -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-label-code text-label-code text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[17px]">hub</span>
+              01 // Choose Engagement Scope
+            </span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">Single Selection</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+<!-- Option 1: Full-Time / New Grad -->
+<label class="group relative flex flex-col p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low/70 hover:border-primary/50 hover:bg-surface-container/80 transition-all cursor-pointer">
+<input checked="" class="peer sr-only" name="engagement_model" type="radio" value="full-time">
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  Full-Time / New Grad
+                </span>
+<div class="w-4 h-4 rounded-full border border-outline-variant flex items-center justify-center peer-checked:border-primary peer-checked:bg-primary-container">
+<div class="w-1.5 h-1.5 rounded-full bg-primary peer-checked:block"></div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-3">
+                40h/wk dedication focusing on high-throughput backend services, Kubernetes deployments, and enterprise cloud architecture.
+              </p>
+<div class="mt-auto flex items-center gap-1.5 text-primary font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Immediate / Post-Grad</span>
+</div>
+<div class="absolute inset-0 rounded-xl border-2 border-primary pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+</label>
+<!-- Option 2: SWE Internship / Co-op (Highlighted) -->
+<label class="group relative flex flex-col p-4 rounded-xl border border-primary/40 bg-primary/5 hover:border-primary hover:bg-primary/10 transition-all cursor-pointer">
+<input class="peer sr-only" name="engagement_model" type="radio" value="internship">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                    SWE Internship / Co-op
+                  </span>
+</div>
+<div class="w-4 h-4 rounded-full border border-primary flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-transparent peer-checked:bg-primary"></div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-3">
+                Summer 2025 (3-6 months). Global remote or in-person relocation. Quick onboarding into existing microservices workflows.
+              </p>
+<div class="mt-auto flex items-center gap-1.5 text-primary font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[14px]">flight_takeoff</span>
+<span>Relocation / Remote Worldwide</span>
+</div>
+<div class="absolute inset-0 rounded-xl border-2 border-primary pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+</label>
+<!-- Option 3: Contract & Freelance -->
+<label class="group relative flex flex-col p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low/70 hover:border-primary/50 hover:bg-surface-container/80 transition-all cursor-pointer">
+<input class="peer sr-only" name="engagement_model" type="radio" value="contract">
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  Contract &amp; Freelance
+                </span>
+<div class="w-4 h-4 rounded-full border border-outline-variant flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-transparent peer-checked:bg-primary"></div>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-3">
+                Scoped MVP sprints, performance profiling, event-driven pipeline builds, and comprehensive technical audit runs.
+              </p>
+<div class="mt-auto flex items-center gap-1.5 text-secondary font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+<span>Flexible Milestone Deliverables</span>
+</div>
+<div class="absolute inset-0 rounded-xl border-2 border-primary pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+</label>
+</div>
+</section>
+<!-- 3. RAPID CANDIDATE FIT / TELEMETRY MATRIX -->
+<section class="p-4 sm:p-5 rounded-xl border border-outline-variant/30 bg-surface-container-low/50 space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<span class="font-label-code text-label-code text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[17px]">dataset</span>
+              02 // Live Candidate Telemetry &amp; Compatibility Parameters
+            </span>
+<span class="font-label-badge text-label-badge text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+              VERIFIED RECORD
+            </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Metric 1: Location & Auth -->
+<div class="space-y-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">public</span>
+                Location &amp; Auth
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+                Nairobi (UTC+3)
+              </p>
+<p class="font-label-code text-label-code text-on-surface-variant text-[11px]">
+                Remote worldwide / Relocation eligible
+              </p>
+</div>
+<!-- Metric 2: Core Stack -->
+<div class="space-y-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">code</span>
+                Core Engineering Matrix
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+                Python, FastAPI, Java (Spring)
+              </p>
+<p class="font-label-code text-label-code text-on-surface-variant text-[11px]">
+                Docker, Kubernetes, Redis, Flutter
+              </p>
+</div>
+<!-- Metric 3: Compensation Band -->
+<div class="space-y-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">payments</span>
+                Compensation Band
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+                Market Standard / Tier-1
+              </p>
+<p class="font-label-code text-label-code text-on-surface-variant text-[11px]">
+                Adjusted by jurisdiction &amp; stage
+              </p>
+</div>
+<!-- Metric 4: Latency SLA -->
+<div class="space-y-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">schedule</span>
+                Turnaround Latency
+              </span>
+<p class="font-body-sm text-body-sm text-primary font-semibold leading-snug flex items-center gap-1">
+                &lt; 4 Hours SLA
+              </p>
+<p class="font-label-code text-label-code text-on-surface-variant text-[11px]">
+                Guaranteed response timeframe
+              </p>
+</div>
+</div>
+</section>
+<!-- 4. QUICK BOOKING & DIRECT DISPATCH (Split Interactive Form) -->
+<section class="space-y-3">
+<span class="font-label-code text-label-code text-on-surface uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[17px]">send</span>
+            03 // Uplink Channels: Calendar Sync OR Direct Dispatch Payload
+          </span>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+<!-- Left Channel: Fast-Track Calendar Uplink (5 cols) -->
+<div class="lg:col-span-5 p-5 rounded-xl border border-outline-variant/30 bg-surface-container/60 flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<h3 class="font-headline-sm text-body-lg text-on-surface font-semibold">Fast-Track Sync</h3>
+</div>
+<span class="font-label-badge text-label-badge text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">
+                    15-30 MIN
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                  Skip the back-and-forth email thread. Sync directly onto my engineering diary for a technical compatibility evaluation.
+                </p>
+<!-- Available Slots Preview -->
+<div class="space-y-2 mb-4">
+<span class="font-label-code text-[11px] text-on-surface-variant uppercase tracking-wider block">
+                    Next Available Telemetry Slots
+                  </span>
+<!-- Slot Pill 1 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 bg-surface-container-low hover:border-primary/40 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">alarm</span>
+<span class="font-label-code text-label-code text-on-surface">Tomorrow, 14:00 EAT</span>
+</div>
+<span class="font-label-badge text-label-badge text-on-surface-variant">UTC+3</span>
+</div>
+<!-- Slot Pill 2 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg border border-outline-variant/30 bg-surface-container-low hover:border-primary/40 hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]">alarm</span>
+<span class="font-label-code text-label-code text-on-surface">Friday, 15:30 EAT</span>
+</div>
+<span class="font-label-badge text-label-badge text-on-surface-variant">UTC+3</span>
+</div>
+</div>
+</div>
+<!-- Launch Cal Button -->
+<button class="w-full py-2.5 px-4 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant hover:border-primary text-body-sm font-semibold flex items-center justify-center gap-2 transition-all duration-150 active:scale-95 shadow-sm" type="button">
+<span class="material-symbols-outlined text-primary text-[18px]">event_available</span>
+<span>Launch Cal.com Handshake</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">arrow_forward</span>
+</button>
+</div>
+<!-- Right Channel: Direct Dispatch Payload Form (7 cols) -->
+<div class="lg:col-span-7 p-5 rounded-xl border border-outline-variant/30 bg-surface-container/60 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">forward_to_inbox</span>
+<h3 class="font-headline-sm text-body-lg text-on-surface font-semibold">Direct Dispatch Payload</h3>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant">POST /v3/inbound</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+                  Transmit role details, requirements, or opportunity parameters straight to my priority notification queue.
+                </p>
+<!-- Input Fields Grid -->
+<form class="space-y-3" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- Recruiter Name -->
+<div>
+<label class="block font-label-code text-[11px] text-on-surface-variant mb-1">
+                        RECRUITER / ENG LEAD NAME *
+                      </label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-on-surface placeholder:text-outline/50 font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="e.g. Sarah Jenkins" required="" type="text">
+</div>
+<!-- Email -->
+<div>
+<label class="block font-label-code text-[11px] text-on-surface-variant mb-1">
+                        ORGANIZATION / DOMAIN EMAIL *
+                      </label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-on-surface placeholder:text-outline/50 font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="sarah@anthropic.com" required="" type="email">
+</div>
+</div>
+<!-- Role Title & Job Spec Link -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block font-label-code text-[11px] text-on-surface-variant mb-1">
+                        TARGET ROLE TITLE *
+                      </label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-on-surface placeholder:text-outline/50 font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Systems SWE / Platform Intern" required="" type="text">
+</div>
+<div>
+<label class="block font-label-code text-[11px] text-on-surface-variant mb-1">
+                        JOB SPEC / CAREERS URL
+                      </label>
+<input class="w-full px-3 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-on-surface placeholder:text-outline/50 font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="https://company.io/jobs/3941" type="url">
+</div>
+</div>
+<!-- Team Tech Stack & Context -->
+<div>
+<label class="block font-label-code text-[11px] text-on-surface-variant mb-1">
+                      TEAM TECH STACK &amp; BRIEF SPECIFICATION
+                    </label>
+<textarea class="w-full px-3 py-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-on-surface placeholder:text-outline/50 font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none" placeholder="Distributed Go/Python services, Kafka message queue, GCP infrastructure. Looking for immediate Summer 2025 start..." rows="2"></textarea>
+</div>
+<!-- Submit Action Button -->
+<div class="pt-1">
+<button class="w-full py-2.5 px-5 rounded-lg bg-primary-container hover:bg-[#0891B2] text-on-primary-container font-headline-sm text-body-md font-bold flex items-center justify-center gap-2 transition-all duration-150 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.35)]" type="submit">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Dispatch Role Transmission [Enter ↵]</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- ========================================== -->
+<!-- 5. FOOTER NOTES & CRYPTO DOSSIER LINKS     -->
+<!-- ========================================== -->
+<div class="px-6 sm:px-8 py-3.5 border-t border-outline-variant/30 bg-surface-container-lowest/90 rounded-b-xl flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+<!-- Direct Dossier Anchors -->
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-on-surface-variant font-label-code text-label-code">
+<a class="hover:text-primary transition-colors flex items-center gap-1.5 underline-offset-4 hover:underline" href="#resume">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+            Download Full Resume (.pdf)
+          </a>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<a class="hover:text-primary transition-colors flex items-center gap-1.5 underline-offset-4 hover:underline" href="#pgp">
+<span class="material-symbols-outlined text-[16px] text-tertiary">fingerprint</span>
+            PGP Dossier (Key ID: 0x9B4E)
+          </a>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<a class="hover:text-primary transition-colors flex items-center gap-1.5 underline-offset-4 hover:underline" href="#github">
+<span class="material-symbols-outlined text-[16px]">folder_special</span>
+            GitHub Profile
+          </a>
+</div>
+<!-- Security Watermark -->
+<div class="flex items-center gap-2 text-on-surface-variant font-label-badge text-label-badge">
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+<span>TLS 1.3 / E2E ENCRYPTED HANDSHAKE</span>
+</div>
+</div>
+</div>
+</div>
+</body></html>

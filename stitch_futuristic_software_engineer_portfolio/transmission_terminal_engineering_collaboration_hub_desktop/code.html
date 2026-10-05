@@ -1,0 +1,742 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Transmission Terminal &amp; Technical Collaboration Hub | dev::portfolio</title>
+<!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#06b6d4",
+            "on-primary-fixed-variant": "#004e5c",
+            "secondary-container": "#571bc1",
+            "error-container": "#93000a",
+            "on-secondary": "#3c0091",
+            "surface-tint": "#4cd7f6",
+            "on-surface": "#dfe2ee",
+            "primary-fixed": "#acedff",
+            "surface-container-lowest": "#0a0e16",
+            "on-surface-variant": "#bcc9cd",
+            "on-secondary-fixed": "#23005c",
+            "tertiary-fixed": "#c4e7ff",
+            "on-tertiary-container": "#00415a",
+            "surface-container": "#1c2028",
+            "tertiary-container": "#23b2ec",
+            "surface-container-highest": "#31353e",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-container-high": "#262a33",
+            "surface-container-low": "#181c24",
+            "surface": "#0f131c",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary": "#00354a",
+            "on-primary-container": "#00424f",
+            "inverse-surface": "#dfe2ee",
+            "on-error-container": "#ffdad6",
+            "secondary": "#d0bcff",
+            "error": "#ffb4ab",
+            "inverse-primary": "#00687a",
+            "on-tertiary-fixed": "#001e2c",
+            "on-background": "#dfe2ee",
+            "inverse-on-surface": "#2c3039",
+            "tertiary": "#7bd0ff",
+            "on-primary-fixed": "#001f26",
+            "background": "#0f131c",
+            "primary": "#4cd7f6",
+            "outline-variant": "#3d494c",
+            "surface-bright": "#353942",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary": "#003640",
+            "surface-variant": "#31353e",
+            "on-error": "#690005",
+            "secondary-fixed": "#e9ddff",
+            "outline": "#869397",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "primary-fixed-dim": "#4cd7f6",
+            "surface-dim": "#0f131c",
+            "on-tertiary-fixed-variant": "#004c69"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "margin": "3rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-code": ["JetBrains Mono"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-badge": ["JetBrains Mono"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Technical Grid Canvas Simulation */
+    .bg-cyber-mesh {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #3d494c;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #4cd7f6;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen relative flex flex-col selection:bg-primary selection:text-on-primary">
+<!-- Background Glow & Grid Overlay -->
+<div class="fixed inset-0 pointer-events-none z-0 bg-cyber-mesh opacity-40"></div>
+<div class="fixed top-12 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="fixed top-1/3 right-10 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- SHARED COMPONENT: TopAppBar (Desktop Navigation Anchor) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+<!-- Leading Brand Cluster -->
+<a class="flex items-center gap-2 group" href="#">
+<span class="material-symbols-outlined text-primary text-xl transition-transform group-hover:rotate-45 duration-200">terminal</span>
+<span class="font-label-code text-label-code text-primary tracking-wider font-bold">dev::portfolio</span>
+<span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-label-badge bg-surface-container-high text-outline border border-outline-variant/40">node::03</span>
+</a>
+<!-- Desktop Nav Links (Shared Components Integration) -->
+<nav class="hidden md:flex items-center gap-8 font-label-code text-label-code">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Overview</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Certifications</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#">Projects</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-0.5 flex items-center gap-1.5 shadow-[0_4px_12px_rgba(76,215,246,0.3)]" href="#">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Contact
+        </a>
+</nav>
+<!-- Trailing Action & Status Telemetry -->
+<div class="flex items-center gap-3">
+<div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant/40 shadow-inner">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-badge text-label-badge text-primary uppercase tracking-wider">Status: Available</span>
+</div>
+<a class="px-3.5 py-1.5 rounded font-label-code text-label-code bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant hover:border-primary/50 transition-all duration-150 flex items-center gap-1.5" href="#quick-calendar">
+<span class="material-symbols-outlined text-sm text-primary">calendar_today</span>
+<span>Schedule Sync</span>
+</a>
+</div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="relative z-10 flex-grow pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+<!-- 1. HEADER & HERO HUD -->
+<section class="mb-10">
+<!-- Breadcrumb & Classification Tag -->
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-low/90 border border-outline-variant/50 mb-3 backdrop-blur-md">
+<span class="material-symbols-outlined text-xs text-primary">hub</span>
+<span class="font-label-badge text-label-badge text-primary uppercase tracking-widest">[UPLINK PROTOCOL // SECURE DIRECT TRANSMISSION]</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-headline-lg md:font-display text-headline-lg md:text-display text-on-surface mb-3 tracking-tight font-extrabold max-w-4xl">
+        Initiate Contact &amp; <span class="bg-gradient-to-r from-primary via-tertiary to-secondary bg-clip-text text-transparent">Engineering Collaboration</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mb-6">
+        Direct communication channels for distributed systems engineering, security audits, freelance contracts, open-source initiatives, or tech fellowship opportunities.
+      </p>
+<!-- Live Telemetry Ribbon -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 bg-surface-container-low/60 backdrop-blur-md p-3 rounded-lg border border-outline-variant/40 shadow-lg">
+<!-- Telemetry Unit 1 -->
+<div class="flex items-center gap-3 p-2.5 rounded bg-surface-container/60 border border-outline-variant/30">
+<div class="p-2 rounded bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-lg">bolt</span>
+</div>
+<div>
+<div class="font-label-badge text-[10px] text-outline uppercase tracking-wider">Response Latency</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">&lt; 4 Hours (p99)</div>
+</div>
+</div>
+<!-- Telemetry Unit 2 -->
+<div class="flex items-center gap-3 p-2.5 rounded bg-surface-container/60 border border-outline-variant/30">
+<div class="p-2 rounded bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-lg">work</span>
+</div>
+<div>
+<div class="font-label-badge text-[10px] text-outline uppercase tracking-wider">Availability Status</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">Summer 2025 Roles / Contracts</div>
+</div>
+</div>
+<!-- Telemetry Unit 3 -->
+<div class="flex items-center gap-3 p-2.5 rounded bg-surface-container/60 border border-outline-variant/30">
+<div class="p-2 rounded bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-lg">public</span>
+</div>
+<div>
+<div class="font-label-badge text-[10px] text-outline uppercase tracking-wider">Timezone &amp; Base</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">Nairobi (UTC+3) // Remote</div>
+</div>
+</div>
+<!-- Telemetry Unit 4 -->
+<div class="flex items-center gap-3 p-2.5 rounded bg-surface-container/60 border border-outline-variant/30">
+<div class="p-2 rounded bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-lg">key</span>
+</div>
+<div>
+<div class="font-label-badge text-[10px] text-outline uppercase tracking-wider">PGP Status</div>
+<div class="font-label-code text-label-code text-on-surface font-semibold">Verified 4096-bit RSA Active</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. SPLIT LAYOUT / CORE WORKSTATION -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+<!-- LEFT COLUMN: The Transmission Console (Interactive Form) -->
+<section class="lg:col-span-7 bg-surface-container-low/70 backdrop-blur-xl border border-outline-variant/40 rounded-xl p-6 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+<!-- Terminal Window Control Bar -->
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/30 mb-6">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+<span class="ml-2 font-label-code text-[12px] text-outline">ttyS0::tls1.3_e2ee_dispatch</span>
+</div>
+<div class="flex items-center gap-2 text-outline text-xs font-label-code">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span>SOCKET_READY</span>
+</div>
+</div>
+<form class="space-y-5" id="transmission-form" onsubmit="event.preventDefault(); simulateSend();">
+<!-- Identity and Return Socket Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Transmitter Identity -->
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">person</span>
+<span>Transmitter Identity // Full Name</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/80 border border-outline-variant/50 focus:border-primary focus:ring-1 focus:ring-primary text-on-surface rounded p-2.5 text-sm font-label-code placeholder-outline/50 transition-all duration-150" placeholder="e.g. Dr. Alex Vance" required="" type="text">
+</div>
+</div>
+<!-- Return Socket / Email -->
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">alternate_email</span>
+<span>Return Socket // Email Address</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest/80 border border-outline-variant/50 focus:border-primary focus:ring-1 focus:ring-primary text-on-surface rounded p-2.5 text-sm font-label-code placeholder-outline/50 transition-all duration-150" placeholder="alex@quantum-labs.org" required="" type="email">
+</div>
+</div>
+</div>
+<!-- Engagement Protocol Dropdown -->
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">tune</span>
+<span>Engagement Protocol // Directive</span>
+</label>
+<select class="w-full bg-surface-container-lowest/80 border border-outline-variant/50 focus:border-primary focus:ring-1 focus:ring-primary text-on-surface rounded p-2.5 text-sm font-label-code transition-all duration-150">
+<option value="internship">Software Engineering Internship / Full-time Role</option>
+<option value="distributed">Distributed Systems Consulting / Microservices</option>
+<option value="security">Security Audit &amp; Vulnerability Assessment</option>
+<option value="opensource">Open-Source Architecture Collaboration</option>
+<option value="speaking">Technical Speaking / Mentorship</option>
+</select>
+</div>
+<!-- Priority & Urgency Selector -->
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1.5 flex items-center justify-between">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">priority_high</span>
+<span>Transmission Urgency SLA</span>
+</span>
+<span class="text-xs text-outline font-label-badge">Standard response: &lt;4h</span>
+</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="priority" type="radio" value="normal">
+<div class="p-2 text-center rounded border border-outline-variant/40 bg-surface-container peer-checked:bg-surface-container-high peer-checked:border-primary peer-checked:text-primary transition-all">
+<span class="font-label-badge text-label-badge block font-bold">NORMAL</span>
+<span class="text-[10px] text-outline block">Standard SLA</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="priority" type="radio" value="high">
+<div class="p-2 text-center rounded border border-outline-variant/40 bg-surface-container peer-checked:bg-surface-container-high peer-checked:border-tertiary peer-checked:text-tertiary transition-all">
+<span class="font-label-badge text-label-badge block font-bold">HIGH PRIORITY</span>
+<span class="text-[10px] text-outline block">1-2h Routing</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="priority" type="radio" value="critical">
+<div class="p-2 text-center rounded border border-outline-variant/40 bg-surface-container peer-checked:bg-surface-container-high peer-checked:border-secondary peer-checked:text-secondary transition-all">
+<span class="font-label-badge text-label-badge block font-bold">CRITICAL</span>
+<span class="text-[10px] text-outline block">Instant Pager</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Transmission Payload / Textarea -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">data_object</span>
+<span>Payload Content // Scope &amp; Stack Requirements</span>
+</label>
+<div class="flex items-center gap-2 text-outline font-label-badge text-[11px]">
+<span class="flex items-center gap-0.5 text-primary">
+<span class="material-symbols-outlined text-xs">markdown</span>
+<span>MD Supported</span>
+</span>
+<span>•</span>
+<span id="char-count">0 / 2048 chars</span>
+</div>
+</div>
+<textarea class="w-full bg-surface-container-lowest/80 border border-outline-variant/50 focus:border-primary focus:ring-1 focus:ring-primary text-on-surface rounded p-3 text-sm font-label-code placeholder-outline/50 transition-all custom-scroll" id="payload-input" oninput="updateCharCount(this)" placeholder="Detail the distributed systems architecture, project timeline, constraints, or technical questions here..." required="" rows="5"></textarea>
+</div>
+<!-- Attachment Zone -->
+<div class="border border-dashed border-outline-variant/60 hover:border-primary/60 bg-surface-container/30 rounded-lg p-3 text-center transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-2xl text-outline group-hover:text-primary transition-colors">cloud_upload</span>
+<p class="font-label-code text-xs text-on-surface-variant mt-1">Upload Project Specs, RFPs, or Arch Diagrams</p>
+<p class="font-label-badge text-[10px] text-outline">.pdf, .md, .zip, .png (Max 25MB)</p>
+</div>
+<!-- Action Button & Keyboard Hint -->
+<div class="pt-2 flex flex-col sm:flex-row items-center gap-4 justify-between">
+<div class="font-label-badge text-[11px] text-outline flex items-center gap-1.5">
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant font-label-code text-on-surface">Ctrl</kbd> +
+              <kbd class="px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant font-label-code text-on-surface">Enter</kbd>
+<span>to send directly</span>
+</div>
+<button class="w-full sm:w-auto px-6 py-3 rounded bg-primary-container hover:bg-surface-tint text-on-primary-container font-headline-sm text-sm font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_28px_rgba(6,182,212,0.65)] transition-all duration-200" id="submit-btn" type="submit">
+<span class="material-symbols-outlined text-base">send</span>
+<span>Dispatch Encrypted Transmission</span>
+</button>
+</div>
+<!-- Feedback Status Footer inside Console -->
+<div class="pt-3 border-t border-outline-variant/30 flex items-center justify-between text-[11px] font-label-code text-outline">
+<span id="terminal-feedback">Protocol: Ready // Handshake: Verified // E2EE: Active</span>
+<span class="text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">lock</span>
+<span>TLS 1.3 256-bit</span>
+</span>
+</div>
+</form>
+</section>
+<!-- RIGHT COLUMN: Direct Protocols & Cryptographic Identity Dossier -->
+<section class="lg:col-span-5 space-y-6 flex flex-col">
+<!-- Card 1: Verified Direct Channels -->
+<div class="bg-surface-container-low/70 backdrop-blur-xl border border-outline-variant/40 rounded-xl p-5 shadow-lg relative group">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30 mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">alt_route</span>
+<h2 class="font-headline-sm text-sm font-bold text-on-surface tracking-wide uppercase">Verified Direct Channels</h2>
+</div>
+<span class="font-label-badge text-[10px] text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded">AUTHENTICATED</span>
+</div>
+<div class="space-y-2.5">
+<!-- GitHub -->
+<div class="flex items-center justify-between p-2.5 rounded bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/40 transition-all">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-base">code</span>
+<div>
+<div class="font-label-code text-xs text-on-surface font-semibold">GitHub Engine</div>
+<div class="font-label-code text-[11px] text-outline">github.com/engineer</div>
+</div>
+</div>
+<a class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" href="https://github.com" rel="noopener noreferrer" target="_blank" title="Open repository profile">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<!-- Direct Email Socket -->
+<div class="flex items-center justify-between p-2.5 rounded bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/40 transition-all">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-base">mail</span>
+<div>
+<div class="font-label-code text-xs text-on-surface font-semibold">Direct Email Socket</div>
+<div class="font-label-code text-[11px] text-outline" id="email-value">kevin@engineer.dev</div>
+</div>
+</div>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" onclick="copyToClipboard('kevin@engineer.dev', 'Copied Email')" title="Copy email address">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<!-- LinkedIn -->
+<div class="flex items-center justify-between p-2.5 rounded bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/40 transition-all">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-base">badge</span>
+<div>
+<div class="font-label-code text-xs text-on-surface font-semibold">LinkedIn Network</div>
+<div class="font-label-code text-[11px] text-outline">linkedin.com/in/kevin-dev</div>
+</div>
+</div>
+<a class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" href="https://linkedin.com" rel="noopener noreferrer" target="_blank" title="Connect on LinkedIn">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<!-- Matrix / Telegram -->
+<div class="flex items-center justify-between p-2.5 rounded bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/40 transition-all">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-base">chat</span>
+<div>
+<div class="font-label-code text-xs text-on-surface font-semibold">Telegram / Matrix E2EE</div>
+<div class="font-label-code text-[11px] text-outline">@kevin_core</div>
+</div>
+</div>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" onclick="copyToClipboard('@kevin_core', 'Copied Handle')" title="Copy Telegram handle">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<!-- Discord Dev ID -->
+<div class="flex items-center justify-between p-2.5 rounded bg-surface-container/60 hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/40 transition-all">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-base">sports_esports</span>
+<div>
+<div class="font-label-code text-xs text-on-surface font-semibold">Discord Dev Identity</div>
+<div class="font-label-code text-[11px] text-outline">kevin.systems#0001</div>
+</div>
+</div>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-primary transition-colors" onclick="copyToClipboard('kevin.systems#0001', 'Copied Discord ID')" title="Copy Discord ID">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Interactive Cryptographic Proof & PGP Keys -->
+<div class="bg-surface-container-low/70 backdrop-blur-xl border border-outline-variant/40 rounded-xl p-5 shadow-lg">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30 mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">enhanced_encryption</span>
+<h2 class="font-headline-sm text-sm font-bold text-on-surface tracking-wide uppercase">Cryptographic Identity // PGP</h2>
+</div>
+<span class="font-label-code text-[11px] text-secondary font-mono">0x9B4E...A102</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded border border-outline-variant/40 mb-3">
+<div class="text-[10px] font-label-badge text-outline uppercase mb-1">PGP 4096R Fingerprint</div>
+<div class="font-label-code text-[11px] text-on-surface break-all tracking-wider select-all">
+              8A2F 9E14 80B1 72C3 5144 0EFE 39A0 64BC D571 89EA
+            </div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex-1 py-1.5 px-3 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-code text-xs flex items-center justify-center gap-1.5 transition-all" onclick="copyToClipboard('8A2F9E1480B172C351440EFE39A064BCD57189EA', 'Copied Fingerprint')">
+<span class="material-symbols-outlined text-xs text-primary">fingerprint</span>
+<span>Copy Fingerprint</span>
+</button>
+<button class="flex-1 py-1.5 px-3 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-code text-xs flex items-center justify-center gap-1.5 transition-all" onclick="downloadAscKey()">
+<span class="material-symbols-outlined text-xs text-secondary">download</span>
+<span>Public Key (.asc)</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Interactive Calendar & Fast-Track Sync -->
+<div class="bg-surface-container-low/70 backdrop-blur-xl border border-outline-variant/40 rounded-xl p-5 shadow-lg relative overflow-hidden" id="quick-calendar">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30 mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">event_available</span>
+<h2 class="font-headline-sm text-sm font-bold text-on-surface tracking-wide uppercase">Fast-Track Sync // 20m</h2>
+</div>
+<span class="font-label-badge text-[10px] text-tertiary bg-tertiary/10 border border-tertiary/20 px-2 py-0.5 rounded">Cal.com Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+            Directly reserve a slot for rapid architecture reviews, technical vetting, or technical mentorship calls.
+          </p>
+<!-- Selectable Date Slots Simulation -->
+<div class="grid grid-cols-3 gap-2 mb-4">
+<button class="p-2 rounded bg-surface-container border border-outline-variant hover:border-primary/50 text-left transition-all group">
+<div class="font-label-badge text-[10px] text-outline">TOMORROW</div>
+<div class="font-label-code text-xs text-on-surface font-bold group-hover:text-primary">14:00 UTC</div>
+</button>
+<button class="p-2 rounded bg-surface-container border border-outline-variant hover:border-primary/50 text-left transition-all group">
+<div class="font-label-badge text-[10px] text-outline">THU, MAY 15</div>
+<div class="font-label-code text-xs text-on-surface font-bold group-hover:text-primary">16:30 UTC</div>
+</button>
+<button class="p-2 rounded bg-surface-container border border-outline-variant hover:border-primary/50 text-left transition-all group">
+<div class="font-label-badge text-[10px] text-outline">FRI, MAY 16</div>
+<div class="font-label-code text-xs text-on-surface font-bold group-hover:text-primary">11:00 UTC</div>
+</button>
+</div>
+<a class="w-full py-2.5 rounded bg-surface-container-high hover:bg-surface-bright text-primary border border-primary/30 font-label-code text-xs font-semibold flex items-center justify-center gap-2 transition-all" href="#">
+<span class="material-symbols-outlined text-sm">schedule_send</span>
+<span>Open Cal.com Scheduling Interface</span>
+</a>
+</div>
+</section>
+</div>
+<!-- 3. INTERACTIVE OFFICE HOURS & GLOBAL TIMEZONE RADAR -->
+<section class="bg-surface-container-low/70 backdrop-blur-xl border border-outline-variant/40 rounded-xl p-6 shadow-xl mb-12">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-4 border-b border-outline-variant/30 mb-6 gap-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">radar</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Global Timezone Overlap Radar &amp; Office Hours</h2>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Real-time collaborative synchronicity matrices calculated against local core operating hours.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-label-code text-xs text-on-surface">Active Collaboration Windows: 12:00 - 20:00 UTC</span>
+</div>
+</div>
+<!-- Timezone Clocks Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Nairobi Local Time (Host Base) -->
+<div class="p-4 rounded-lg bg-surface-container/60 border-2 border-primary/40 relative overflow-hidden shadow-[0_0_15px_rgba(76,215,246,0.15)]">
+<div class="absolute top-2 right-2 px-1.5 py-0.5 rounded text-[9px] font-label-badge bg-primary text-on-primary font-bold">BASE HOST</div>
+<div class="font-label-badge text-xs text-primary font-semibold">NAIROBI (EAT)</div>
+<div class="font-label-code text-2xl font-bold text-on-surface my-1" id="clock-nairobi">--:--:--</div>
+<div class="text-[11px] font-label-code text-outline">UTC+3 // Primary Station</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] font-label-badge">
+<span class="text-on-surface">Window: 08:00 - 22:00</span>
+<span class="text-primary font-bold">● PEAK READY</span>
+</div>
+</div>
+<!-- US Pacific (PST) -->
+<div class="p-4 rounded-lg bg-surface-container/60 border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="font-label-badge text-xs text-outline font-semibold">SAN FRANCISCO (PST/PDT)</div>
+<div class="font-label-code text-2xl font-bold text-on-surface my-1" id="clock-sf">--:--:--</div>
+<div class="text-[11px] font-label-code text-outline">UTC-7 // 10h Behind Host</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] font-label-badge">
+<span class="text-outline">Overlap: 07:00 - 11:00 PST</span>
+<span class="text-tertiary">4h Daily Sync</span>
+</div>
+</div>
+<!-- US Eastern (EST) -->
+<div class="p-4 rounded-lg bg-surface-container/60 border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="font-label-badge text-xs text-outline font-semibold">NEW YORK (EST/EDT)</div>
+<div class="font-label-code text-2xl font-bold text-on-surface my-1" id="clock-ny">--:--:--</div>
+<div class="text-[11px] font-label-code text-outline">UTC-4 // 7h Behind Host</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] font-label-badge">
+<span class="text-outline">Overlap: 08:00 - 14:00 EST</span>
+<span class="text-tertiary">6h Daily Sync</span>
+</div>
+</div>
+<!-- Central European Time (CET) -->
+<div class="p-4 rounded-lg bg-surface-container/60 border border-outline-variant/30 hover:border-outline-variant transition-all">
+<div class="font-label-badge text-xs text-outline font-semibold">BERLIN / LONDON (CET/BST)</div>
+<div class="font-label-code text-2xl font-bold text-on-surface my-1" id="clock-berlin">--:--:--</div>
+<div class="text-[11px] font-label-code text-outline">UTC+1 / UTC+2 // Full Overlap</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-[11px] font-label-badge">
+<span class="text-outline">Overlap: 09:00 - 18:00 CET</span>
+<span class="text-emerald-400 font-bold">8h Full Alignment</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- SHARED COMPONENT: Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20 relative z-10">
+<div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-3 px-4 py-8 mb-16 md:mb-0 text-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">security</span>
+<span class="font-label-code text-label-code text-primary dark:text-primary">dev::transmission_hub</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        © 2024 Built with precision. All telemetry normal.
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-6 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">Source Code</a>
+<span>•</span>
+<a class="hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">Architecture Docs</a>
+<span>•</span>
+<a class="hover:text-primary dark:hover:text-primary transition-colors duration-150" href="#">Public PGP Key</a>
+<span>•</span>
+<a class="hover:text-primary dark:hover:text-primary transition-colors duration-150 flex items-center gap-1" href="#">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Status Page</span>
+</a>
+</div>
+</div>
+</footer>
+<!-- SHARED COMPONENT: BottomNavBar (Visible strictly on Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-low/90 backdrop-blur-lg border-t border-outline-variant/30 flex justify-around items-center px-2 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 p-1" href="#">
+<span class="material-symbols-outlined text-xl">code</span>
+<span class="font-label-badge text-label-badge mt-0.5">Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 p-1" href="#">
+<span class="material-symbols-outlined text-xl">verified</span>
+<span class="font-label-badge text-label-badge mt-0.5">Certifications</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors duration-150 p-1" href="#">
+<span class="material-symbols-outlined text-xl">folder_special</span>
+<span class="font-label-badge text-label-badge mt-0.5">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold p-1" href="#">
+<span class="material-symbols-outlined text-xl">terminal</span>
+<span class="font-label-badge text-label-badge mt-0.5">Contact</span>
+</a>
+</nav>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-20 right-6 z-50 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-300 bg-surface-container-high border border-primary/50 text-on-surface px-4 py-2.5 rounded-lg shadow-2xl flex items-center gap-3" id="toast">
+<span class="material-symbols-outlined text-primary text-lg" id="toast-icon">check_circle</span>
+<span class="font-label-code text-xs" id="toast-message">Action confirmed</span>
+</div>
+<!-- Micro-Interactions & Real-Time Clock Engine -->
+<script>
+    // Live Clocks Simulator for Global Timezone Radar
+    function updateClocks() {
+      const now = new Date();
+      
+      const formatTime = (tz) => {
+        return new Intl.DateTimeFormat('en-US', {
+          timeZone: tz,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        }).format(now);
+      };
+
+      const clockNairobi = document.getElementById('clock-nairobi');
+      const clockSF = document.getElementById('clock-sf');
+      const clockNY = document.getElementById('clock-ny');
+      const clockBerlin = document.getElementById('clock-berlin');
+
+      if (clockNairobi) clockNairobi.textContent = formatTime('Africa/Nairobi');
+      if (clockSF) clockSF.textContent = formatTime('America/Los_Angeles');
+      if (clockNY) clockNY.textContent = formatTime('America/New_York');
+      if (clockBerlin) clockBerlin.textContent = formatTime('Europe/Berlin');
+    }
+
+    setInterval(updateClocks, 1000);
+    updateClocks();
+
+    // Textarea Character Counter
+    function updateCharCount(el) {
+      const counter = document.getElementById('char-count');
+      if (counter) {
+        counter.textContent = `${el.value.length} / 2048 chars`;
+      }
+    }
+
+    // Ctrl + Enter Dispatch shortcut
+    document.getElementById('payload-input')?.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        simulateSend();
+      }
+    });
+
+    // Simulated Transmission Dispatch Feedback
+    function simulateSend() {
+      const btn = document.getElementById('submit-btn');
+      const feedback = document.getElementById('terminal-feedback');
+      
+      if (!btn || !feedback) return;
+
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = `
+        <span class="material-symbols-outlined text-base animate-spin">sync</span>
+        <span>Encrypting & Dispatching...</span>
+      `;
+      btn.disabled = true;
+      feedback.textContent = 'Status: Encrypting packet payload with 4096-bit RSA...';
+      feedback.classList.add('text-primary');
+
+      setTimeout(() => {
+        feedback.textContent = 'Transmission ACK 200 // Stream dispatched to relay node';
+        showToast('Encrypted message transmitted successfully to engineer socket.', 'mark_email_read');
+        btn.innerHTML = `
+          <span class="material-symbols-outlined text-base">task_alt</span>
+          <span>Dispatched Successfully</span>
+        `;
+        
+        setTimeout(() => {
+          btn.innerHTML = originalHtml;
+          btn.disabled = false;
+          feedback.textContent = 'Protocol: Ready // Handshake: Verified // E2EE: Active';
+          feedback.classList.remove('text-primary');
+          document.getElementById('transmission-form')?.reset();
+          const counter = document.getElementById('char-count');
+          if (counter) counter.textContent = '0 / 2048 chars';
+        }, 3000);
+      }, 1200);
+    }
+
+    // Clipboard Copy Helper with Toast Notification
+    function copyToClipboard(text, msg) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(msg || 'Copied to clipboard', 'content_copy');
+      }).catch(() => {
+        showToast('Failed to copy', 'error');
+      });
+    }
+
+    // Download Simulated PGP Key
+    function downloadAscKey() {
+      const dummyPgp = `-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: OpenPGP.js v5.2.0\n\nmQINBGN...[SIMULATED 4096-BIT RSA KEY ENCRYPTED PAYLOAD]...A102\n-----END PGP PUBLIC KEY BLOCK-----`;
+      const blob = new Blob([dummyPgp], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'kevin-dev-public-4096.asc';
+      a.click();
+      window.URL.revokeObjectURL(url);
+      showToast('Public key (.asc) downloaded', 'download_done');
+    }
+
+    // Lightweight Toast Controller
+    function showToast(message, iconName = 'check_circle') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastIcon = document.getElementById('toast-icon');
+
+      if (!toast || !toastMsg || !toastIcon) return;
+
+      toastMsg.textContent = message;
+      toastIcon.textContent = iconName;
+
+      toast.classList.remove('opacity-0', 'translate-y-12', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-12', 'pointer-events-none');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3000);
+    }
+  </script>
+</body></html>

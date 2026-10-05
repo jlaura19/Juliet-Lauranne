@@ -1,0 +1,800 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Projects &amp; Architecture Laboratory | dev::portfolio</title>
+<!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#003640",
+            "tertiary": "#7bd0ff",
+            "on-secondary-fixed-variant": "#5516be",
+            "error": "#ffb4ab",
+            "on-primary-container": "#00424f",
+            "secondary-container": "#571bc1",
+            "surface-dim": "#0f131c",
+            "background": "#0f131c",
+            "on-tertiary-fixed-variant": "#004c69",
+            "outline-variant": "#3d494c",
+            "on-secondary-fixed": "#23005c",
+            "on-error": "#690005",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface": "#0f131c",
+            "on-background": "#dfe2ee",
+            "inverse-primary": "#00687a",
+            "outline": "#869397",
+            "on-secondary": "#3c0091",
+            "surface-variant": "#31353e",
+            "secondary": "#d0bcff",
+            "surface-container-low": "#181c24",
+            "error-container": "#93000a",
+            "on-secondary-container": "#c4abff",
+            "on-surface-variant": "#bcc9cd",
+            "tertiary-fixed-dim": "#7bd0ff",
+            "inverse-surface": "#dfe2ee",
+            "on-primary-fixed": "#001f26",
+            "on-surface": "#dfe2ee",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary-container": "#00415a",
+            "on-error-container": "#ffdad6",
+            "surface-container-lowest": "#0a0e16",
+            "surface-bright": "#353942",
+            "primary-container": "#06b6d4",
+            "tertiary-container": "#23b2ec",
+            "surface-container-high": "#262a33",
+            "surface-container": "#1c2028",
+            "primary-fixed-dim": "#4cd7f6",
+            "primary": "#4cd7f6",
+            "on-tertiary-fixed": "#001e2c",
+            "surface-container-highest": "#31353e",
+            "primary-fixed": "#acedff",
+            "surface-tint": "#4cd7f6",
+            "on-primary-fixed-variant": "#004e5c",
+            "on-tertiary": "#00354a",
+            "tertiary-fixed": "#c4e7ff",
+            "inverse-on-surface": "#2c3039"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-code": ["JetBrains Mono"],
+            "display-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-badge": ["JetBrains Mono"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "800" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Custom scanline and ambient cybernetic grid */
+    .bg-cyber-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .glow-cyan-subtle {
+      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.18), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    }
+    .glow-purple-subtle {
+      box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.18), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    }
+    .neon-border {
+      border: 1px solid rgba(76, 215, 246, 0.25);
+    }
+    .neon-border:hover {
+      border-color: rgba(76, 215, 246, 0.6);
+      box-shadow: 0 0 20px -3px rgba(76, 215, 246, 0.2);
+    }
+    /* Material symbols helper */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen relative flex flex-col selection:bg-primary-container selection:text-on-primary">
+<!-- Ambient Background Mesh & Lighting Nodes -->
+<div class="fixed inset-0 bg-cyber-grid pointer-events-none z-0 opacity-60"></div>
+<div class="fixed -top-40 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[128px] pointer-events-none z-0"></div>
+<div class="fixed top-1/2 -right-40 w-96 h-96 bg-secondary-container/15 rounded-full blur-[140px] pointer-events-none z-0"></div>
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+<!-- Brand & Leading Icon -->
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container border border-outline-variant/50 flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="terminal">terminal</span>
+</div>
+<span class="font-label-code text-label-code text-primary dark:text-primary tracking-wider font-bold">dev::portfolio</span>
+</div>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#overview">Overview</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#certifications">Certifications</a>
+<!-- Active Target: Projects -->
+<a class="font-body-sm text-body-sm text-primary dark:text-primary font-bold flex items-center gap-1.5 relative py-1" href="#projects">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Projects
+          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full"></span>
+</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors duration-150" href="#contact">Contact</a>
+</nav>
+<!-- Trailing Action: Status Badge -->
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-badge text-label-badge text-primary uppercase tracking-wider">Status: Available</span>
+</div>
+<a class="px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary transition-all duration-150 active:scale-95 shadow-sm" href="#contact">
+          Connect
+        </a>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="relative z-10 flex-grow pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+<!-- Section 1: Header & Telemetry HUD -->
+<section class="mt-4 mb-14">
+<div class="flex flex-col items-start gap-4">
+<!-- Eyebrow Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-tertiary font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-sm" data-icon="deployed_code">deployed_code</span>
+<span>[DEPLOYMENT REGISTRY // OPEN SOURCE ARTIFACTS]</span>
+</div>
+<h1 class="font-display text-headline-lg-mobile md:text-display text-on-surface tracking-tight font-extrabold max-w-4xl">
+          Engineered Systems &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">Production Architecture</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+          Deep-dive technical dossiers into distributed engines, reactive client applications, cryptography pipelines, and cloud microservices. Built with rigorous fault tolerance and high observability.
+        </p>
+<!-- Telemetry Metrics Bar (Glassmorphic Tray) -->
+<div class="w-full mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 p-4 rounded-xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-md shadow-sm">
+<div class="flex flex-col p-3 rounded-lg bg-surface-container/50 border border-outline-variant/20">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-badge text-label-badge text-outline">REPOSITORIES</span>
+<span class="material-symbols-outlined text-primary text-base" data-icon="code">code</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">18</span>
+<span class="font-label-code text-xs text-primary-fixed-dim mt-0.5">Production Deployed</span>
+</div>
+<div class="flex flex-col p-3 rounded-lg bg-surface-container/50 border border-outline-variant/20">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-badge text-label-badge text-outline">MERGED ARTIFACTS</span>
+<span class="material-symbols-outlined text-secondary text-base" data-icon="merge_type">merge_type</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">1,240+</span>
+<span class="font-label-code text-xs text-secondary-fixed-dim mt-0.5">Closed PRs &amp; Issues</span>
+</div>
+<div class="flex flex-col p-3 rounded-lg bg-surface-container/50 border border-outline-variant/20">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-badge text-label-badge text-outline">RELIABILITY</span>
+<span class="material-symbols-outlined text-tertiary text-base" data-icon="verified">verified</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">99.98%</span>
+<span class="font-label-code text-xs text-tertiary-fixed-dim mt-0.5">CI/CD Pipeline Success</span>
+</div>
+<div class="flex flex-col p-3 rounded-lg bg-surface-container/50 border border-outline-variant/20">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-badge text-label-badge text-outline">CORE ARCHITECTURES</span>
+<span class="material-symbols-outlined text-primary text-base" data-icon="account_tree">account_tree</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">4 Stacks</span>
+<span class="font-label-code text-xs text-outline mt-0.5">Distributed, CRDT, Sec, Wasm</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Multi-Dimensional Filter & Search Bar -->
+<section class="mb-10">
+<div class="flex flex-col lg:flex-row gap-4 justify-between items-stretch lg:items-center p-4 rounded-xl bg-surface-container-low/80 border border-outline-variant/30 backdrop-blur-md">
+<!-- Search Input -->
+<div class="relative flex-1 min-w-[260px]">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest/80 border border-outline-variant/40 rounded-lg pl-10 pr-4 py-2 font-label-code text-label-code text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Search repository, dependency (e.g. eBPF, Kafka, CRDT)..." type="text">
+</div>
+<!-- Stack Filter Chips -->
+<div class="flex flex-wrap items-center gap-2 overflow-x-auto pb-1 lg:pb-0">
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-badge text-label-badge font-bold transition-all shadow-sm">
+            All (18)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-primary hover:border-primary/40 font-label-badge text-label-badge transition-all">
+            Python / Microservices (6)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-primary hover:border-primary/40 font-label-badge text-label-badge transition-all">
+            Flutter / Mobile (4)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-primary hover:border-primary/40 font-label-badge text-label-badge transition-all">
+            Java / Security (5)
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-primary hover:border-primary/40 font-label-badge text-label-badge transition-all">
+            Next.js / Wasm (3)
+          </button>
+</div>
+<!-- Sort Toggle Menu -->
+<div class="flex items-center gap-2 border-t lg:border-t-0 pt-2 lg:pt-0 border-outline-variant/20">
+<span class="font-label-badge text-label-badge text-outline uppercase tracking-wider">Sort:</span>
+<select class="bg-surface-container border border-outline-variant/40 text-on-surface rounded-lg px-2.5 py-1.5 font-label-code text-xs focus:outline-none focus:border-primary cursor-pointer">
+<option>Most Stars</option>
+<option>Recent Commits</option>
+<option>System Complexity</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Section 3: Flagship Featured Project Dossier (Deep Dive Inspection View) -->
+<section class="mb-14">
+<div class="flex items-center gap-2 mb-4">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Featured Architectural Artifact</h2>
+<span class="px-2 py-0.5 rounded text-[10px] font-label-badge bg-primary/10 text-primary border border-primary/30 uppercase tracking-widest ml-auto">Tier-0 Production</span>
+</div>
+<div class="rounded-2xl bg-surface-container-low/70 border border-outline-variant/40 p-6 lg:p-8 backdrop-blur-xl relative overflow-hidden glow-cyan-subtle">
+<!-- Ambient Top Accent Gradient -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-tertiary to-secondary"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Specs & Overview -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="px-2.5 py-1 rounded bg-primary-container/20 border border-primary/40 text-primary font-label-code text-xs font-semibold">
+                v2.1.0
+              </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest font-label-badge text-label-badge text-outline">
+                Distributed Telemetry
+              </span>
+<div class="flex items-center gap-1.5 ml-auto text-xs font-label-badge text-primary">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                Build Passing
+              </div>
+</div>
+<h3 class="font-headline-lg text-headline-md lg:text-headline-lg text-on-surface font-bold">
+              cloud-sentinel-api
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              High-throughput distributed telemetry ingest and anomaly detector. Orchestrated with distributed event streams, sub-millisecond sliding window filters, and automated horizontal cluster scaling.
+            </p>
+<!-- Live Performance Benchmarks Box -->
+<div class="rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30 p-4 font-label-code text-xs">
+<div class="text-tertiary font-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="speed">speed</span>
+                PROD TELEMETRY BENCHMARKS
+              </div>
+<div class="grid grid-cols-3 gap-2 text-center pt-1">
+<div class="p-2 rounded bg-surface-container/60 border border-outline-variant/20">
+<div class="text-on-surface font-bold text-sm">45k</div>
+<div class="text-outline text-[10px]">req/sec limit</div>
+</div>
+<div class="p-2 rounded bg-surface-container/60 border border-outline-variant/20">
+<div class="text-primary font-bold text-sm">&lt;1.4ms</div>
+<div class="text-outline text-[10px]">p99 Latency</div>
+</div>
+<div class="p-2 rounded bg-surface-container/60 border border-outline-variant/20">
+<div class="text-secondary font-bold text-sm">100%</div>
+<div class="text-outline text-[10px]">Zero-Drop Buffer</div>
+</div>
+</div>
+</div>
+<!-- GitHub Meta -->
+<div class="flex flex-wrap items-center gap-4 text-xs font-label-code text-on-surface-variant pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="star">star</span>
+<span>86 Stars</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="fork_right">fork_right</span>
+<span>19 Forks</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="gavel">gavel</span>
+<span>MIT License</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-3 pt-2">
+<button class="px-4 py-2.5 rounded-lg bg-primary-container text-on-primary font-body-sm text-body-sm font-bold flex items-center gap-2 hover:bg-primary transition-all duration-150 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-base" data-icon="account_tree">account_tree</span>
+                Inspect Architecture
+              </button>
+<button class="px-4 py-2.5 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-body-sm text-body-sm hover:border-secondary hover:text-secondary transition-all duration-150 flex items-center gap-2">
+<span class="material-symbols-outlined text-base" data-icon="terminal">terminal</span>
+                View Source
+              </button>
+<button class="px-3 py-2 rounded-lg text-outline hover:text-primary transition-colors text-xs font-label-code">
+                Swagger Specs →
+              </button>
+</div>
+</div>
+<!-- Right Column: Interactive Architecture Blueprint visual card -->
+<div class="lg:col-span-7 rounded-xl bg-surface-container-lowest/90 border border-outline-variant/40 p-5 font-label-code">
+<!-- macOS Window Controls Header -->
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/20 mb-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="w-3 h-3 rounded-full bg-amber-400"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-xs text-outline ml-2 font-mono">topology::distributed_stream_v2.d2</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] bg-surface-container text-tertiary">Interactive Flow</span>
+</div>
+<!-- Multi-tier ASCII/SVG Diagram Flow -->
+<div class="space-y-4 py-2">
+<!-- Tier 1: Ingress Layer -->
+<div class="flex flex-col sm:flex-row items-center gap-3">
+<div class="w-full sm:w-1/3 p-3 rounded-lg bg-surface-container/70 border border-primary/30 flex flex-col items-center justify-center text-center">
+<span class="text-[11px] text-primary uppercase font-bold tracking-wider">Ingress</span>
+<span class="text-xs text-on-surface mt-1 font-semibold">API Gateway / Envoy</span>
+<span class="text-[10px] text-outline mt-0.5">TLS 1.3 Termination</span>
+</div>
+<div class="text-primary flex items-center justify-center rotate-90 sm:rotate-0">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<!-- Tier 2: Event Pipeline -->
+<div class="w-full sm:w-2/3 p-3 rounded-lg bg-surface-container/70 border border-secondary/30 flex flex-col items-center justify-center text-center">
+<span class="text-[11px] text-secondary uppercase font-bold tracking-wider">Message Spine</span>
+<span class="text-xs text-on-surface mt-1 font-semibold">Kafka Event Stream (3-Broker Partition)</span>
+<span class="text-[10px] text-outline mt-0.5">Zero-Copy Ingestion | 500k msg/sec</span>
+</div>
+</div>
+<!-- Connecting Bus Flow -->
+<div class="flex justify-center text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="south">south</span>
+</div>
+<!-- Tier 3: Compute & Workers -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div class="p-3 rounded-lg bg-surface-container/80 border border-tertiary/30">
+<div class="flex items-center justify-between text-tertiary text-xs font-semibold">
+<span>FastAPI Telemetry Node [A]</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="text-[11px] text-outline mt-1 font-mono">Sliding Anomaly Model (eBPF Trace)</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-tertiary h-full w-[42%]"></div>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container/80 border border-tertiary/30">
+<div class="flex items-center justify-between text-tertiary text-xs font-semibold">
+<span>FastAPI Telemetry Node [B]</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<div class="text-[11px] text-outline mt-1 font-mono">Vector Embeddings &amp; State Buffer</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-tertiary h-full w-[68%]"></div>
+</div>
+</div>
+</div>
+<!-- Connecting Bus Flow -->
+<div class="flex justify-center text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="south">south</span>
+</div>
+<!-- Tier 4: Persistence Cluster -->
+<div class="p-3 rounded-lg bg-surface-container/70 border border-outline-variant/40 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="database">database</span>
+<div>
+<span class="text-xs text-on-surface font-semibold block">TimescaleDB Hypertable + Redis Cluster</span>
+<span class="text-[10px] text-outline">Cold Tier: Compressed S3 Parquet Buckets</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-[10px] text-primary">Query: 0.8ms</span>
+</div>
+</div>
+</div>
+<!-- Terminal Diagnostic Mini Log -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] text-outline font-mono">
+<span class="flex items-center gap-2 text-on-surface-variant">
+<span class="text-primary">$</span> sentinel --health-check --cluster=prod-us-east
+              </span>
+<span class="text-primary font-semibold">ALL CLUSTERS HEALTHY</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Interactive Projects Grid / Explorer (Catalog of Repositories) -->
+<section class="mb-14" id="projects">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+<div>
+<h2 class="font-headline-lg text-headline-md sm:text-headline-lg text-on-surface font-bold">
+            Repository Catalog &amp; Systems Index
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Engineered with strict encapsulation, immutable test suites, and clean architecture boundaries.
+          </p>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-auto font-label-badge text-label-badge text-outline">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>SYNCED WITH GITHUB REGISTRY</span>
+</div>
+</div>
+<!-- Bento-style Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: pulse-finance-app -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 p-6 flex flex-col justify-between backdrop-blur-md hover:border-primary/50 transition-all duration-200 group">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-code text-xs px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
+                v1.4.3
+              </span>
+<span class="font-label-badge text-[10px] text-outline uppercase tracking-wider">Mobile &amp; Edge</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors flex items-center gap-2">
+              pulse-finance-app
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+              Offline-first biometric financial ledger with local-first conflict-free replicated data types (CRDT) and biometric hardware encryption for seamless cross-device synchronization.
+            </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1.5 mt-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-tertiary border border-outline-variant/20">Flutter</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-tertiary border border-outline-variant/20">Dart</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">CRDT Sync</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">SQLite</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">Biometrics</span>
+</div>
+</div>
+<div class="pt-5 mt-5 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="star">star</span>142</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-outline" data-icon="fork_right">fork_right</span>31</span>
+<span class="text-outline text-[10px]">Apache 2.0</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="text-primary hover:text-tertiary flex items-center gap-1 font-semibold" href="#">
+                Repo <span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 2: secure-auth-engine -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 p-6 flex flex-col justify-between backdrop-blur-md hover:border-secondary/50 transition-all duration-200 group">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-code text-xs px-2.5 py-0.5 rounded bg-secondary/10 text-secondary border border-secondary/20">
+                v3.0.0
+              </span>
+<span class="font-label-badge text-[10px] text-outline uppercase tracking-wider">Enterprise Security</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-secondary transition-colors flex items-center gap-2">
+              secure-auth-engine
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+              Identity provider daemon implementing zero-trust perimeter verification, hardware security module (HSM) simulation, and asymmetric token signing with cryptographic revocation lists.
+            </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1.5 mt-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-secondary border border-outline-variant/20">Java 21</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-secondary border border-outline-variant/20">Spring Boot 3</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">OAuth2/PKCE</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">PostgreSQL</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">HSM</span>
+</div>
+</div>
+<div class="pt-5 mt-5 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-secondary" data-icon="star">star</span>118</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-outline" data-icon="fork_right">fork_right</span>24</span>
+<span class="text-tertiary text-[10px]">Audited</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="text-secondary hover:text-secondary-fixed flex items-center gap-1 font-semibold" href="#">
+                Docs <span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 3: dev-nexus-hub -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 p-6 flex flex-col justify-between backdrop-blur-md hover:border-tertiary/50 transition-all duration-200 group">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-code text-xs px-2.5 py-0.5 rounded bg-tertiary/10 text-tertiary border border-tertiary/20">
+                v1.0.5
+              </span>
+<span class="font-label-badge text-[10px] text-outline uppercase tracking-wider">Wasm &amp; Compilers</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-tertiary transition-colors flex items-center gap-2">
+              dev-nexus-hub
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+              Real-time peer-to-peer collaborative developer sandbox with AST parsing in WebAssembly and WebRTC mesh state sync for zero-latency concurrent code compilation.
+            </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1.5 mt-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-primary border border-outline-variant/20">Next.js 14</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-tertiary border border-outline-variant/20">Rust</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">WebAssembly</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">WebRTC</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">TypeScript</span>
+</div>
+</div>
+<div class="pt-5 mt-5 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="star">star</span>205</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-outline" data-icon="fork_right">fork_right</span>48</span>
+<span class="text-primary text-[10px]">Live Demo</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="text-tertiary hover:text-primary flex items-center gap-1 font-semibold" href="#">
+                Launch <span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 4: network-sentinel-daemon -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 p-6 flex flex-col justify-between backdrop-blur-md hover:border-primary/50 transition-all duration-200 group">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-code text-xs px-2.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
+                v0.9.4
+              </span>
+<span class="font-label-badge text-[10px] text-outline uppercase tracking-wider">Systems &amp; Kernel</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary transition-colors flex items-center gap-2">
+              network-sentinel-daemon
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+              Low-overhead socket inspection daemon hooked into Linux kernel eBPF probes for malicious payload discovery and instant egress network isolation.
+            </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1.5 mt-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-primary border border-outline-variant/20">C++20</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-tertiary border border-outline-variant/20">eBPF</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">Linux Kernel</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">BCC</span>
+</div>
+</div>
+<div class="pt-5 mt-5 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="star">star</span>64</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-outline" data-icon="fork_right">fork_right</span>12</span>
+<span class="text-outline text-[10px]">GPL-3.0</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="text-primary hover:text-tertiary flex items-center gap-1 font-semibold" href="#">
+                Source <span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 5: infra-telemetry-collector -->
+<div class="rounded-xl bg-surface-container-low/70 border border-outline-variant/30 p-6 flex flex-col justify-between backdrop-blur-md hover:border-tertiary/50 transition-all duration-200 group">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-code text-xs px-2.5 py-0.5 rounded bg-tertiary/10 text-tertiary border border-tertiary/20">
+                v1.2.0
+              </span>
+<span class="font-label-badge text-[10px] text-outline uppercase tracking-wider">Cloud Infrastructure</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-tertiary transition-colors flex items-center gap-2">
+              infra-telemetry-collector
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+              Custom Kubernetes operator synthesizing node telemetry into dynamic horizontal pod autoscaling triggers, slashing cloud provisioning waste by 34%.
+            </p>
+<!-- Tech Badges -->
+<div class="flex flex-wrap gap-1.5 mt-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-primary border border-outline-variant/20">Go 1.22</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-tertiary border border-outline-variant/20">K8s Operator</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">Prometheus</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline border border-outline-variant/20">HPA</span>
+</div>
+</div>
+<div class="pt-5 mt-5 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary" data-icon="star">star</span>92</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-outline" data-icon="fork_right">fork_right</span>15</span>
+<span class="text-tertiary text-[10px]">Prod Active</span>
+</div>
+<div class="flex items-center gap-2">
+<a class="text-tertiary hover:text-primary flex items-center gap-1 font-semibold" href="#">
+                Helm Chart <span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 6: Experimental Lab / Zero-Knowledge Sandbox -->
+<div class="rounded-xl bg-surface-container-low/40 border border-dashed border-outline-variant/50 p-6 flex flex-col justify-between backdrop-blur-md hover:border-primary/40 transition-all duration-200">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-code text-xs px-2.5 py-0.5 rounded bg-surface-container-high text-outline">
+                Research Branch
+              </span>
+<span class="font-label-badge text-[10px] text-tertiary uppercase tracking-wider">ZK &amp; Circuitry</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-2">
+              zk-snark-verifier
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-3 leading-relaxed">
+              Experimental zero-knowledge cryptographic circuit compiler implemented in Rust and Noir for private verification of credentials on decentralized ledgers.
+            </p>
+<div class="flex flex-wrap gap-1.5 mt-4">
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline">Rust</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline">Noir</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-code bg-surface-container text-outline">ZK-SNARK</span>
+</div>
+</div>
+<div class="pt-5 mt-5 border-t border-outline-variant/20 flex items-center justify-between text-xs font-label-code">
+<span class="text-outline text-[11px] font-mono">Status: Whitepaper &amp; Test Vectors</span>
+<span class="text-outline flex items-center gap-1">In Progress</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Technical Release & Commit Pulse (Terminal Feed) -->
+<section class="mb-14">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-base" data-icon="terminal">terminal</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Telemetry Stream // Live Git Heartbeat</h2>
+</div>
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-5 font-label-code text-xs shadow-inner">
+<!-- Terminal Header -->
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30 text-outline mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-error/80"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary/80"></span>
+<span class="text-on-surface-variant ml-1 font-mono">kevin@commit-stream:~$ git log --graph --oneline -n 3</span>
+</div>
+<div class="flex items-center gap-2 text-[11px]">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>HEAD -&gt; origin/main [Synced]</span>
+</div>
+</div>
+<!-- Terminal Body Commit List -->
+<div class="space-y-3 font-mono">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 group">
+<div class="flex items-start sm:items-center gap-2">
+<span class="text-primary font-bold">* 4f98a21</span>
+<span class="text-on-surface">feat(telemetry): optimize ring buffer memory allocations (-22% memory footprint)</span>
+</div>
+<div class="flex items-center gap-3 text-outline text-[11px] pl-4 sm:pl-0">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-tertiary">cloud-sentinel-api</span>
+<span>2 hours ago</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 group">
+<div class="flex items-start sm:items-center gap-2">
+<span class="text-secondary font-bold">* 9b31d04</span>
+<span class="text-on-surface">fix(crdt): resolve edge-case vector clock desync under flaky network conditions</span>
+</div>
+<div class="flex items-center gap-3 text-outline text-[11px] pl-4 sm:pl-0">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-secondary">pulse-finance-app</span>
+<span>18 hours ago</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 group">
+<div class="flex items-start sm:items-center gap-2">
+<span class="text-tertiary font-bold">* c8e103f</span>
+<span class="text-on-surface">sec(auth): bump crypto library and renew X.509 authority root chain</span>
+</div>
+<div class="flex items-center gap-3 text-outline text-[11px] pl-4 sm:pl-0">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-outline">secure-auth-engine</span>
+<span>2 days ago</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Engineering Philosophy & Collab CTA -->
+<section class="mb-8">
+<div class="rounded-2xl bg-gradient-to-br from-surface-container-low via-surface-container to-surface-container-high border border-outline-variant/40 p-8 lg:p-12 relative overflow-hidden text-center flex flex-col items-center">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary-container/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-highest/80 border border-outline-variant/40 text-tertiary font-label-badge text-label-badge mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="handshake">handshake</span>
+<span>SYSTEM ARCHITECTURE &amp; CONSULTING</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-extrabold max-w-2xl">
+          Have an open-source challenge or research proposal?
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-3 mb-8">
+          Let’s engineer something resilient together. Available for high-impact technical advisory, distributed systems design, and performance optimizations.
+        </p>
+<div class="flex flex-wrap items-center justify-center gap-4">
+<a class="px-6 py-3 rounded-lg bg-primary-container text-on-primary font-body-md text-body-md font-bold flex items-center gap-2 hover:bg-primary transition-all duration-150 active:scale-95 shadow-lg shadow-primary-container/20" href="#contact">
+<span class="material-symbols-outlined text-lg" data-icon="send">send</span>
+            Initiate Transmission
+          </a>
+<button class="px-6 py-3 rounded-lg bg-surface-container-high border border-outline-variant/50 text-on-surface font-body-md text-body-md font-medium hover:border-primary/50 hover:text-primary transition-all duration-150 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+            Clone Dotfiles &amp; Templates
+          </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Component: BottomNavBar (Mobile Only Responsive Pivot) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-low/90 dark:bg-surface-container-low/90 backdrop-blur-lg border-t border-outline-variant/30 px-2 py-2 flex justify-around items-center">
+<!-- Item 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#overview">
+<span class="material-symbols-outlined text-xl" data-icon="code">code</span>
+<span class="font-label-badge text-label-badge mt-0.5">Overview</span>
+</a>
+<!-- Item 2: Certifications -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#certifications">
+<span class="material-symbols-outlined text-xl" data-icon="verified">verified</span>
+<span class="font-label-badge text-label-badge mt-0.5">Certifications</span>
+</a>
+<!-- Item 3: Projects (ACTIVE STRICT MATCH) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-bold hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#projects">
+<span class="material-symbols-outlined text-xl" data-icon="folder_special">folder_special</span>
+<span class="font-label-badge text-label-badge mt-0.5">Projects</span>
+</a>
+<!-- Item 4: Contact -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95" href="#contact">
+<span class="material-symbols-outlined text-xl" data-icon="terminal">terminal</span>
+<span class="font-label-badge text-label-badge mt-0.5">Contact</span>
+</a>
+</nav>
+<!-- Shared Component: Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20 mt-auto">
+<div class="flex flex-col items-center justify-center gap-3 px-4 py-8 mb-16 md:mb-0 max-w-7xl mx-auto text-center">
+<!-- Brand Logo / Monogram -->
+<div class="font-label-code text-label-code text-primary dark:text-primary tracking-wider font-bold">
+        dev::portfolio
+      </div>
+<!-- Copyright Text -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        © 2024 Built with precision. All telemetry normal.
+      </p>
+<!-- Mandatory Links from JSON -->
+<div class="flex flex-wrap items-center justify-center gap-6 mt-1 font-body-sm text-body-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#source">Source Code</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#docs">Architecture Docs</a>
+<span class="text-outline-variant">•</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-150" href="#pgp">Public PGP Key</a>
+</div>
+</div>
+</footer>
+</body></html>
