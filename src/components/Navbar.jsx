@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const links = [
   ["About", "#about"],
+  ["Education", "#education"],
   ["Projects", "#projects"],
   ["Skills", "#skills"],
   ["Contact", "#contact"],

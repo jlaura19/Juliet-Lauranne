@@ -76,7 +76,7 @@ export default function ProjectsSection() {
   return (
     <section className="section-shell section-spacing" id="projects">
       <div className="section-heading">
-        <p className="eyebrow">02 / PROJECTS</p>
+        <p className="eyebrow">03 / PROJECTS</p>
         <h2>Built, shipped, and still evolving.</h2>
         <p>
           A live window into my public GitHub work. Search by project or

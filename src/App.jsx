@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AboutSection from "./components/AboutSection.jsx";
 import ContactSection from "./components/ContactSection.jsx";
+import EducationSection from "./components/EducationSection.jsx";
 import Hero from "./components/Hero.jsx";
 import HireModal from "./components/HireModal.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -20,6 +21,7 @@ export default function App() {
       <main>
         <Hero onHireClick={() => setHireModalOpen(true)} />
         <AboutSection />
+        <EducationSection />
         <ProjectsSection />
         <SkillsSection />
         <ContactSection />

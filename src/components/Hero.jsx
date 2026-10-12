@@ -1,5 +1,5 @@
 const highlights = [
-  ["04", "Credentials"],
+  ["05", "Credentials"],
   ["GitHub", "Live projects"],
   ["Nairobi", "Kenya · UTC+3"],
 ];

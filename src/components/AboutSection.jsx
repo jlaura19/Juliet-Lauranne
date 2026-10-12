@@ -1,28 +1,3 @@
-const credentials = [
-  {
-    title: "Digital Awareness",
-    issuer: "Cisco Networking Academy",
-    completed: "Jan 8, 2025",
-  },
-  {
-    title: "Cybersecurity and Emerging Technologies Awareness Training",
-    issuer: "ICT Authority, Kenya",
-    completed: "Dec 14, 2024",
-    id: "ICTA-1734202986-2344-19305",
-  },
-  {
-    title: "Introduction to Cybersecurity",
-    issuer: "Cisco Networking Academy",
-    completed: "Jun 27, 2024",
-  },
-  {
-    title: "Social Media Marketing Certificate",
-    issuer: "Brightermonday Kenya / Arifu",
-    completed: "Nov 18, 2025",
-    id: "CERT-000000000351",
-  },
-];
-
 export default function AboutSection() {
   return (
     <section className="section-shell section-spacing" id="about">
@@ -34,7 +9,7 @@ export default function AboutSection() {
           make software more helpful, reliable, and accessible?
         </p>
       </div>
-      <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="grid gap-6 lg:grid-cols-2">
         <article className="glass-panel rounded-2xl p-6 sm:p-8">
           <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-cyan/20 bg-cyan/10 text-2xl text-cyan">
             <span aria-hidden="true" className="material-symbols-outlined">
@@ -61,43 +36,28 @@ export default function AboutSection() {
             ))}
           </div>
         </article>
-        <div>
-          <div className="mb-4 flex items-end justify-between gap-4">
-            <div>
-              <p className="eyebrow">LEARNING MILESTONES</p>
-              <h3 className="mt-2 text-2xl font-bold text-slate-100">
-                Certifications
-              </h3>
-            </div>
-            <span className="font-mono text-xs text-muted">04 records</span>
+        <article className="glass-panel rounded-2xl p-6 sm:p-8">
+          <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-cyan/20 bg-cyan/10 text-2xl text-cyan">
+            <span aria-hidden="true" className="material-symbols-outlined">
+              rocket_launch
+            </span>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {credentials.map((credential) => (
-              <article className="credential-card glass-panel" key={credential.title}>
-                <div className="mb-3 flex items-start justify-between gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="material-symbols-outlined text-xl text-cyan"
-                  >
-                    verified
-                  </span>
-                  <span className="font-mono text-[11px] text-muted">
-                    {credential.completed}
-                  </span>
-                </div>
-                <h4 className="font-semibold leading-6 text-slate-100">
-                  {credential.title}
-                </h4>
-                <p className="mt-2 text-sm text-muted">{credential.issuer}</p>
-                {credential.id && (
-                  <p className="mt-3 break-all border-t border-line/70 pt-3 font-mono text-[11px] text-cyan/90">
-                    ID: {credential.id}
-                  </p>
-                )}
-              </article>
+          <h3 className="text-xl font-bold text-slate-100">Career objective</h3>
+          <p className="mt-4 leading-7 text-muted">
+            Innovative and detail-oriented software engineering student
+            passionate about artificial intelligence, prompt engineering, and
+            content design. I combine strong technical knowledge in
+            cybersecurity and programming with research, writing, and creative
+            problem-solving, and I&apos;m looking for opportunities to
+            contribute to AI-driven projects through logical thinking and
+            effective communication.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {["Prompt engineering", "AI interaction", "Research & writing"].map((tag) => (
+              <span className="tag" key={tag}>{tag}</span>
             ))}
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ export default function ContactSection() {
   return (
     <section className="section-shell section-spacing pb-24" id="contact">
       <div className="section-heading">
-        <p className="eyebrow">04 / CONTACT</p>
+        <p className="eyebrow">05 / CONTACT</p>
         <h2>Have a good idea? Let&apos;s talk.</h2>
         <p>
           Share a little about what you&apos;re working on. This form prepares a
