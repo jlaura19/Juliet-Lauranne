@@ -37,7 +37,7 @@ export default function SkillsSection() {
   return (
     <section className="section-shell section-spacing" id="skills">
       <div className="section-heading">
-        <p className="eyebrow">04 / SKILLS</p>
+        <p className="eyebrow">05 / SKILLS</p>
         <h2>The toolkit I&apos;m growing.</h2>
         <p>
           A practical mix of tools I use today and areas I&apos;m actively

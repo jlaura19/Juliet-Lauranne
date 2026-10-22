@@ -3,6 +3,7 @@ import { useState } from "react";
 const links = [
   ["About", "#about"],
   ["Education", "#education"],
+  ["Experience", "#experience"],
   ["Projects", "#projects"],
   ["Skills", "#skills"],
   ["Contact", "#contact"],
@@ -27,7 +28,7 @@ export default function Navbar({ onHireClick }) {
           </span>
           dev::portfolio
         </a>
-        <nav aria-label="Main navigation" className="hidden items-center gap-7 md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-7 xl:flex">
           {links.map(([label, href]) => (
             <a
               className="text-sm text-muted transition hover:text-cyan"
@@ -44,7 +45,7 @@ export default function Navbar({ onHireClick }) {
         <button
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className="rounded-lg border border-line p-2 text-slate-200 md:hidden"
+          className="rounded-lg border border-line p-2 text-slate-200 xl:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           type="button"
         >
@@ -56,7 +57,7 @@ export default function Navbar({ onHireClick }) {
       {menuOpen && (
         <nav
           aria-label="Mobile navigation"
-          className="border-t border-line/70 bg-ink px-5 py-4 md:hidden"
+          className="border-t border-line/70 bg-ink px-5 py-4 xl:hidden"
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-1">
             {links.map(([label, href]) => (

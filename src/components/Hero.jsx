@@ -7,7 +7,7 @@ const highlights = [
 export default function Hero({ onHireClick }) {
   return (
     <section
-      className="section-shell grid min-h-[calc(100svh-65px)] items-center gap-12 py-20 lg:grid-cols-[1.15fr_0.85fr]"
+      className="section-shell grid min-h-[calc(100svh-65px)] items-center gap-10 py-16 lg:grid-cols-[1.15fr_0.85fr]"
       id="home"
     >
       <div className="relative z-10">
@@ -15,7 +15,7 @@ export default function Hero({ onHireClick }) {
           <span className="status-dot" />
           SOFTWARE ENGINEERING · OPEN TO OPPORTUNITIES
         </div>
-        <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-50 sm:text-6xl lg:text-7xl">
+        <h1 className="max-w-4xl text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-50 sm:text-5xl xl:text-6xl">
           I build thoughtful
           <span className="block gradient-text">digital experiences.</span>
         </h1>

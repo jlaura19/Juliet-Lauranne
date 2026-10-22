@@ -2,6 +2,7 @@ import { useState } from "react";
 import AboutSection from "./components/AboutSection.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import EducationSection from "./components/EducationSection.jsx";
+import ExperienceSection from "./components/ExperienceSection.jsx";
 import Hero from "./components/Hero.jsx";
 import HireModal from "./components/HireModal.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -22,6 +23,7 @@ export default function App() {
         <Hero onHireClick={() => setHireModalOpen(true)} />
         <AboutSection />
         <EducationSection />
+        <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
         <ContactSection />

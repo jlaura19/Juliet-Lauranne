@@ -113,19 +113,19 @@ button {
 }
 
 .section-spacing {
-  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  padding-block: clamp(3.25rem, 7vw, 5.5rem);
   scroll-margin-top: 4.5rem;
 }
 
 .section-heading {
-  max-width: 48rem;
-  margin-bottom: 2.5rem;
+  max-width: 44rem;
+  margin-bottom: 2rem;
 }
 
 .section-heading h2 {
   margin-top: 0.65rem;
   color: #f1f5f8;
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(1.65rem, 3.2vw, 2.5rem);
   font-weight: 750;
   letter-spacing: -0.045em;
   line-height: 1.15;
